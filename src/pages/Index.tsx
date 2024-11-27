@@ -115,7 +115,7 @@ const Index = () => {
   }
 
   return (
-    <Box sx={{ bgcolor: '#ececec', minHeight: '100vh', pt: 4 }}>
+    <Box sx={{ bgcolor: '#ececec', minHeight: '100vh', pt: 4, position: 'relative', pb: 20 }}>
       <Container maxWidth="md" sx={{ py: 4 }}>
         <Box sx={{ 
           display: 'flex', 
@@ -147,6 +147,7 @@ const Index = () => {
             IA para el Gobierno Peruano
           </Typography>
         </Box>
+        
         <Typography
           variant="body1"
           sx={{
@@ -192,6 +193,34 @@ const Index = () => {
           )}
         </Box>
       </Container>
+
+      <Box
+        component="footer"
+        sx={{
+          position: 'absolute',
+          bottom: 0,
+          width: '100%',
+          bgcolor: '#ececec',
+          py: 4,
+          borderTop: '1px solid #1b1d1a20',
+        }}
+      >
+        <Container maxWidth="md">
+          <Typography
+            variant="body2"
+            sx={{
+              textAlign: 'center',
+              color: '#1b1d1a',
+              fontSize: '10px',
+              fontFamily: '"Roboto Mono", monospace',
+              letterSpacing: '0.05em',
+              lineHeight: 1.6
+            }}
+          >
+            Creamos proyectos con propósito, guiados por empatía, análisis y colaboración. Directores creativos enfocados en el impacto social. | Contáctanos: +51 936646947
+          </Typography>
+        </Container>
+      </Box>
     </Box>
   );
 };

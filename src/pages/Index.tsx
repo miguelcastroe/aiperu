@@ -85,7 +85,10 @@ const Index = () => {
                 fontWeight: 500,
                 color: '#BB2233',
                 textAlign: 'left',
-                fontSize: '1.25rem'
+                fontSize: '12px',
+                fontFamily: '"Roboto Mono", monospace',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em'
               }}
             >
               {card.Title}

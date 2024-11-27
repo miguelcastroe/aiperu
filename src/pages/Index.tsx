@@ -117,9 +117,9 @@ const Index = () => {
         <Typography 
           variant="h1" 
           sx={{ 
-            textAlign: 'center', 
+            textAlign: 'left', 
             mb: 4,
-            fontWeight: 300,
+            fontWeight: 400,
             color: '#86373E',
             fontSize: '2.5rem'
           }}

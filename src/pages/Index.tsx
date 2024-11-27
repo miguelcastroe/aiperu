@@ -3,7 +3,7 @@ import { InsightCard } from "@/lib/types";
 import Card from "@/components/Card";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { useToast } from "@/components/ui/use-toast";
-import { Container, Typography, Box } from '@mui/material';
+import { Container, Typography, Box, Link } from '@mui/material';
 
 const Index = () => {
   const [cards, setCards] = useState<InsightCard[]>([]);
@@ -142,7 +142,7 @@ const Index = () => {
           variant="body1"
           sx={{
             textAlign: 'left',
-            mb: 6,
+            mb: 2,
             color: '#17222B',
             lineHeight: 1.7,
             letterSpacing: '0.01em'
@@ -150,6 +150,23 @@ const Index = () => {
         >
           Buscamos inspirar un futuro donde la IA promueva el bienestar social y económico de forma ética, inclusiva y sostenible, invitando a todos a asumir responsabilidades para lograrlo.
         </Typography>
+        <Link
+          href="https://www.gob.pe/iaperu"
+          target="_blank"
+          rel="noopener noreferrer"
+          sx={{
+            display: 'block',
+            textAlign: 'left',
+            mb: 6,
+            color: '#86373E',
+            textDecoration: 'underline',
+            '&:hover': {
+              color: '#44332D'
+            }
+          }}
+        >
+          Enlace al reporte de Presidencia de Consejo de Ministros
+        </Link>
         <Box>
           {renderCards()}
         </Box>

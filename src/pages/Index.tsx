@@ -13,24 +13,14 @@ const Index = () => {
   const loadingRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
-  const typeOrder = ["Propuesta", "Observación", "Reflexión", "Nuestra Sugerencia"];
-
   useEffect(() => {
     const fetchCards = async () => {
       try {
         const response = await fetch("/bites_supa.json");
         const data = await response.json();
-        
-        // Sort cards according to typeOrder
-        const sortedCards = [...data].sort((a, b) => {
-          const indexA = typeOrder.indexOf(a.Type);
-          const indexB = typeOrder.indexOf(b.Type);
-          return indexA - indexB;
-        });
-        
-        setCards(sortedCards);
-        setVisibleCards(sortedCards.slice(0, 1)); // Start with just one card
-        setCurrentIndex(1);
+        setCards(data);
+        setVisibleCards(data.slice(0, 5));
+        setCurrentIndex(5);
       } catch (error) {
         toast({
           title: "Error",
@@ -48,10 +38,9 @@ const Index = () => {
   const loadMoreCards = useCallback(() => {
     if (currentIndex >= cards.length) return;
 
-    // Add one card at a time
-    const nextCard = cards[currentIndex];
-    setVisibleCards(prev => [...prev, nextCard]);
-    setCurrentIndex(prev => prev + 1);
+    const nextCards = cards.slice(currentIndex, currentIndex + 3);
+    setVisibleCards(prev => [...prev, ...nextCards]);
+    setCurrentIndex(prev => prev + 3);
   }, [currentIndex, cards]);
 
   useEffect(() => {

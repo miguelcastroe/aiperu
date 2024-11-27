@@ -96,7 +96,7 @@ const Card = ({ card, index }: CardProps) => {
                 fontWeight: 500,
                 letterSpacing: '0.02em',
                 bgcolor: getTypeColor(card.Type),
-                color: '#17222B'
+                color: '#FBF8F0'
               }}
             />
           </Box>

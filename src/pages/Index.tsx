@@ -112,28 +112,30 @@ const Index = () => {
   }
 
   return (
-    <Container maxWidth="md" sx={{ py: 4, bgcolor: '#FBF8F0' }}>
-      <Typography 
-        variant="h1" 
-        sx={{ 
-          textAlign: 'center', 
-          mb: 6,
-          fontWeight: 300,
-          color: '#86373E',
-          fontSize: '2.5rem'
-        }}
-      >
-        IA para el Gobierno Peruano
-      </Typography>
-      <Box>
-        {renderCards()}
-      </Box>
-      <Box ref={loadingRef} sx={{ mt: 4 }}>
-        {currentIndex < cards.length && (
-          <LoadingSpinner />
-        )}
-      </Box>
-    </Container>
+    <Box sx={{ bgcolor: '#FBF8F0', minHeight: '100vh' }}>
+      <Container maxWidth="md" sx={{ py: 4 }}>
+        <Typography 
+          variant="h1" 
+          sx={{ 
+            textAlign: 'center', 
+            mb: 6,
+            fontWeight: 300,
+            color: '#86373E',
+            fontSize: '2.5rem'
+          }}
+        >
+          IA para el Gobierno Peruano
+        </Typography>
+        <Box>
+          {renderCards()}
+        </Box>
+        <Box ref={loadingRef} sx={{ mt: 4 }}>
+          {currentIndex < cards.length && (
+            <LoadingSpinner />
+          )}
+        </Box>
+      </Container>
+    </Box>
   );
 };
 

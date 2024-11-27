@@ -85,7 +85,7 @@ const Card = ({ card, index }: CardProps) => {
                 opacity: isCategoryVisible ? 1 : 0,
                 transition: 'opacity 0.3s ease-out',
                 display: 'block',
-                fontSize: '1.1rem'  // Increased from default
+                fontSize: '1.3rem'  // Increased from 1.1rem
               }}
             >
               {card.Category}
@@ -97,8 +97,7 @@ const Card = ({ card, index }: CardProps) => {
                 fontWeight: 500,
                 letterSpacing: '0.02em',
                 bgcolor: getTypeColor(card.Type),
-                color: '#FBF8F0',
-                fontSize: '0.9rem'  // Increased from default
+                color: '#FBF8F0'
               }}
             />
           </Box>
@@ -108,8 +107,7 @@ const Card = ({ card, index }: CardProps) => {
               m: 0,
               color: '#17222B',
               lineHeight: 1.7,
-              letterSpacing: '0.01em',
-              fontSize: '1.05rem'  // Increased from default
+              letterSpacing: '0.01em'
             }}
           >
             {card.Description}

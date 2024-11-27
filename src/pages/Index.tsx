@@ -145,7 +145,7 @@ const Index = () => {
             textTransform: 'uppercase'
           }}
         >
-          Este website se basa en el reporte de la Presidencia del Consejo de Ministros sobre la Inteligencia Artificial en Perú, publicado el 21 de noviembre de 2024. A partir de esta base, lo analizamos de manera reflexiva y objetiva, integrando observaciones ciudadanas y esbozos de soluciones innovadoras.
+          Este sitio analiza reflexivamente el reporte de la Presidencia del Consejo de Ministros (PCM) sobre IA en Perú (21/11/2024), integrando observaciones ciudadanas y posibles soluciones, dentro de las limitaciones de las fuentes originales.
         </Typography>
         <Typography
           variant="body1"

@@ -1,5 +1,6 @@
 import { InsightCard } from "@/lib/types";
 import { useEffect, useState } from "react";
+import { Card as GeistCard, Text, Tag } from '@geist-ui/core';
 
 interface CardProps {
   card: InsightCard;
@@ -15,7 +16,6 @@ const Card = ({ card, index }: CardProps) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Delay the category animation slightly after the card appears
           setTimeout(() => {
             setIsCategoryVisible(true);
           }, 200);
@@ -42,44 +42,45 @@ const Card = ({ card, index }: CardProps) => {
   const getTypeColor = (type: string) => {
     switch (type.toLowerCase()) {
       case "propuesta":
-        return "bg-green-100 text-green-800";
+        return "success";
       case "observación":
-        return "bg-yellow-100 text-yellow-800";
-      case "observación":
-        return "bg-red-100 text-red-800";
+        return "warning";
       case "reflexión":
-        return "bg-orange-100 text-orange-800";
+        return "secondary";
       case "nuestra sugerencia":
-        return "bg-blue-100 text-blue-800";
+        return "default";
       default:
-        return "bg-blue-100 text-blue-800";
+        return "default";
     }
   };
 
   return (
     <div
       id={`card-${index}`}
-      className={`bg-white rounded-lg shadow-md p-6 mb-4 transition-opacity duration-500 ease-in-out ${
-        isVisible ? "opacity-100" : "opacity-0"
-      }`}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: `translateY(${isVisible ? 0 : '20px'})`,
+        transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out',
+        marginBottom: '1rem'
+      }}
     >
-      <div className="flex justify-between items-start mb-3">
-        <h2 
-          className={`text-xl font-bold text-primary transition-opacity duration-500 ease-in-out ${
-            isCategoryVisible ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          {card.Category}
-        </h2>
-        <span
-          className={`px-3 py-1 rounded-full text-sm font-medium ${getTypeColor(
-            card.Type
-          )}`}
-        >
-          {card.Type}
-        </span>
-      </div>
-      <p className="text-gray-700 leading-relaxed">{card.Description}</p>
+      <GeistCard shadow>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
+          <Text h4 style={{ 
+            margin: 0,
+            opacity: isCategoryVisible ? 1 : 0,
+            transition: 'opacity 0.5s ease-in-out'
+          }}>
+            {card.Category}
+          </Text>
+          <Tag type={getTypeColor(card.Type)}>
+            {card.Type}
+          </Tag>
+        </div>
+        <Text p style={{ margin: 0 }}>
+          {card.Description}
+        </Text>
+      </GeistCard>
     </div>
   );
 };

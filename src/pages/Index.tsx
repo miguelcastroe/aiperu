@@ -3,6 +3,7 @@ import { InsightCard } from "@/lib/types";
 import Card from "@/components/Card";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { useToast } from "@/components/ui/use-toast";
+import { Page, Text } from '@geist-ui/core';
 
 const Index = () => {
   const [cards, setCards] = useState<InsightCard[]>([]);
@@ -67,30 +68,28 @@ const Index = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <LoadingSpinner />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-2xl mx-auto">
-        <h1 className="text-3xl font-bold text-primary text-center mb-8">
-          IA para el Gobierno Peruano
-        </h1>
-        <div className="space-y-4">
-          {visibleCards.map((card, index) => (
-            <Card key={index} card={card} index={index} />
-          ))}
-        </div>
-        <div ref={loadingRef} className="mt-4">
-          {currentIndex < cards.length && (
-            <LoadingSpinner />
-          )}
-        </div>
+    <Page size="small">
+      <Text h1 style={{ textAlign: 'center', marginBottom: '2rem' }}>
+        IA para el Gobierno Peruano
+      </Text>
+      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+        {visibleCards.map((card, index) => (
+          <Card key={index} card={card} index={index} />
+        ))}
       </div>
-    </div>
+      <div ref={loadingRef}>
+        {currentIndex < cards.length && (
+          <LoadingSpinner />
+        )}
+      </div>
+    </Page>
   );
 };
 

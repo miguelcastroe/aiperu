@@ -3,15 +3,14 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { GeistProvider, CssBaseline } from '@geist-ui/core';
+import { Theme } from '@carbon/react';
 import Index from "./pages/Index";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <GeistProvider>
-      <CssBaseline />
+    <Theme theme="white">
       <TooltipProvider>
         <Toaster />
         <Sonner />
@@ -21,7 +20,7 @@ const App = () => (
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
-    </GeistProvider>
+    </Theme>
   </QueryClientProvider>
 );
 

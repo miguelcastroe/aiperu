@@ -1,6 +1,6 @@
 import { InsightCard } from "@/lib/types";
 import { useEffect, useState } from "react";
-import { Card as GeistCard, Text, Tag } from '@geist-ui/core';
+import { Tag, Tile } from '@carbon/react';
 
 interface CardProps {
   card: InsightCard;
@@ -42,15 +42,15 @@ const Card = ({ card, index }: CardProps) => {
   const getTypeColor = (type: string) => {
     switch (type.toLowerCase()) {
       case "propuesta":
-        return "success";
+        return "green";
       case "observación":
-        return "warning";
+        return "yellow";
       case "reflexión":
-        return "secondary";
+        return "blue";
       case "nuestra sugerencia":
-        return "default";
+        return "gray";
       default:
-        return "default";
+        return "gray";
     }
   };
 
@@ -64,24 +64,24 @@ const Card = ({ card, index }: CardProps) => {
         marginBottom: '1rem'
       }}
     >
-      <GeistCard shadow>
+      <Tile>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
-          <Text h4 style={{ 
+          <h4 style={{ 
             margin: 0,
             opacity: isCategoryVisible ? 1 : 0,
             transition: 'opacity 0.5s ease-in-out',
-            fontWeight: 100
+            fontWeight: 300
           }}>
             {card.Category}
-          </Text>
-          <Tag type={getTypeColor(card.Type)} style={{ fontWeight: 100 }}>
+          </h4>
+          <Tag type={getTypeColor(card.Type)}>
             {card.Type}
           </Tag>
         </div>
-        <Text p style={{ margin: 0, fontWeight: 100 }}>
+        <p style={{ margin: 0, fontWeight: 300 }}>
           {card.Description}
-        </Text>
-      </GeistCard>
+        </p>
+      </Tile>
     </div>
   );
 };

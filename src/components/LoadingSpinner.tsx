@@ -1,9 +1,9 @@
-import { Loading } from '@geist-ui/core';
+import { Loading } from '@carbon/react';
 
 const LoadingSpinner = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '1rem' }}>
-      <Loading />
+      <Loading withOverlay={false} />
     </div>
   );
 };

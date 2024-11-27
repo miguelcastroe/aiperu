@@ -1,7 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
- 
+@use '@carbon/styles';
+@import '@carbon/styles/css/styles.css';
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -51,13 +50,22 @@
  
 @layer base {
   * {
-    @apply border-border font-extralight;
+    @apply border-border;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
   }
   body {
-    @apply bg-background text-foreground antialiased font-thin;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-extralight;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+  }
+  code, pre {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
   }
 }
 

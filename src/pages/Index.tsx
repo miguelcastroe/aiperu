@@ -3,7 +3,7 @@ import { InsightCard } from "@/lib/types";
 import Card from "@/components/Card";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { useToast } from "@/components/ui/use-toast";
-import { Page, Text } from '@geist-ui/core';
+import { Content } from '@carbon/react';
 
 const Index = () => {
   const [cards, setCards] = useState<InsightCard[]>([]);
@@ -75,11 +75,11 @@ const Index = () => {
   }
 
   return (
-    <Page>
+    <Content>
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 1rem' }}>
-        <Text h1 style={{ textAlign: 'center', marginBottom: '2rem', fontWeight: 100 }}>
+        <h1 style={{ textAlign: 'center', marginBottom: '2rem', fontWeight: 300 }}>
           IA para el Gobierno Peruano
-        </Text>
+        </h1>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           {visibleCards.map((card, index) => (
             <Card key={index} card={card} index={index} />
@@ -91,7 +91,7 @@ const Index = () => {
           )}
         </div>
       </div>
-    </Page>
+    </Content>
   );
 };
 

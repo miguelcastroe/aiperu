@@ -49,7 +49,7 @@ const Index = () => {
     const categoryCards = cards.filter(card => card.Category === currentCategory);
 
     if (currentCardIndex < categoryCards.length) {
-      // Add next card from current category
+      // Add only one card at a time
       setVisibleCards(prev => [...prev, categoryCards[currentCardIndex]]);
       setCurrentCardIndex(prev => prev + 1);
     } else if (currentCategoryIndex < categories.length - 1) {

@@ -85,7 +85,7 @@ const Card = ({ card, index }: CardProps) => {
                 opacity: isCategoryVisible ? 1 : 0,
                 transition: 'opacity 0.3s ease-out',
                 display: 'block',
-                fontSize: '1.3rem'  // Increased from 1.1rem
+                fontSize: '1.2rem'  // Changed from 1.3rem to 1.2rem
               }}
             >
               {card.Category}

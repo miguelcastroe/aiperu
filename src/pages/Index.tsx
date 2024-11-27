@@ -147,21 +147,6 @@ const Index = () => {
         >
           Este sitio analiza reflexivamente el reporte de la Presidencia del Consejo de Ministros (PCM) sobre IA en Perú (21/11/2024), integrando observaciones ciudadanas y posibles soluciones, dentro de las limitaciones de las fuentes originales.
         </Typography>
-        <Typography
-          variant="body1"
-          sx={{
-            textAlign: 'left',
-            mb: 2,
-            color: '#1b1d1a',
-            lineHeight: 1.7,
-            letterSpacing: '0.05em',
-            fontSize: '12px',
-            fontFamily: '"Roboto Mono", monospace',
-            textTransform: 'uppercase'
-          }}
-        >
-          Buscamos inspirar un futuro donde la IA promueva el bienestar social y económico de forma ética, inclusiva y sostenible, invitando a todos a asumir responsabilidades para lograrlo.
-        </Typography>
         <Link
           href="https://www.gob.pe/iaperu"
           target="_blank"

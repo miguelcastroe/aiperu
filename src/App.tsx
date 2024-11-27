@@ -18,7 +18,8 @@ const theme = createTheme({
       main: '#9c27b0',
     },
     background: {
-      default: '#f5f5f5',
+      default: '#f8f9fa',
+      paper: '#ffffff',
     },
   },
   typography: {
@@ -30,6 +31,32 @@ const theme = createTheme({
     body1: {
       fontSize: '1rem',
       lineHeight: 1.5,
+    },
+  },
+  shape: {
+    borderRadius: 16, // Increased border radius for a friendlier look
+  },
+  components: {
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          borderRadius: 16,
+          boxShadow: '0 8px 32px -8px rgba(0,0,0,0.08), 0 4px 16px -4px rgba(0,0,0,0.03)', // Softer, more elegant shadow
+          transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
+          '&:hover': {
+            transform: 'translateY(-4px)',
+            boxShadow: '0 12px 48px -12px rgba(0,0,0,0.12), 0 8px 24px -8px rgba(0,0,0,0.04)',
+          },
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          borderRadius: 12, // Rounder chips
+          boxShadow: '0 2px 8px -2px rgba(0,0,0,0.05)',
+        },
+      },
     },
   },
 });

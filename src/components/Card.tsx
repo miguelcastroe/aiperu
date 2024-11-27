@@ -61,18 +61,23 @@ const Card = ({ card, index }: CardProps) => {
         opacity: isVisible ? 1 : 0,
         transform: `translateY(${isVisible ? 0 : '20px'})`,
         transition: 'opacity 0.5s ease-out, transform 0.5s ease-out',
-        mb: 2
+        mb: 3,
+        '&:hover': {
+          '& .MuiCard-root': {
+            transform: 'translateY(-4px)',
+          }
+        }
       }}
     >
-      <MuiCard elevation={2}>
-        <CardContent>
+      <MuiCard>
+        <CardContent sx={{ p: 3 }}>
           <Box sx={{ 
             display: 'flex', 
             justifyContent: 'space-between', 
             alignItems: 'flex-start',
-            mb: 2,
-            pb: 2,
-            borderBottom: '1px solid rgba(0, 0, 0, 0.12)'
+            mb: 2.5,
+            pb: 2.5,
+            borderBottom: '1px solid rgba(0, 0, 0, 0.08)'
           }}>
             <Typography 
               variant="h6" 
@@ -80,7 +85,8 @@ const Card = ({ card, index }: CardProps) => {
                 m: 0,
                 opacity: isCategoryVisible ? 1 : 0,
                 transition: 'opacity 0.5s ease-out',
-                fontWeight: 400
+                fontWeight: 400,
+                color: 'text.primary'
               }}
             >
               {card.Category}
@@ -89,7 +95,12 @@ const Card = ({ card, index }: CardProps) => {
               label={card.Type}
               color={getTypeColor(card.Type)}
               size="small"
-              sx={{ ml: 2 }}
+              sx={{ 
+                ml: 2,
+                px: 1,
+                fontWeight: 500,
+                letterSpacing: '0.02em'
+              }}
             />
           </Box>
           <Typography 
@@ -97,7 +108,8 @@ const Card = ({ card, index }: CardProps) => {
             sx={{ 
               m: 0,
               color: 'text.secondary',
-              lineHeight: 1.6
+              lineHeight: 1.7,
+              letterSpacing: '0.01em'
             }}
           >
             {card.Description}

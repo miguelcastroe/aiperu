@@ -9,10 +9,12 @@ const Index = () => {
   const [visibleCards, setVisibleCards] = useState<InsightCard[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
-  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [currentTypeIndex, setCurrentTypeIndex] = useState(0);
   const observer = useRef<IntersectionObserver | null>(null);
   const loadingRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
+
+  const typeOrder = ["Propuesta", "Observación", "Reflexión", "Nuestra Sugerencia"];
 
   useEffect(() => {
     const fetchCards = async () => {
@@ -22,13 +24,16 @@ const Index = () => {
         
         // Group cards by category
         const categories = Array.from(new Set(data.map((card: InsightCard) => card.Category)));
-        const firstCategoryCards = data.filter((card: InsightCard) => card.Category === categories[0]);
+        
+        // Get first category's first "Propuesta" card
+        const firstCategoryCards = data.filter((card: InsightCard) => 
+          card.Category === categories[0] && card.Type === "Propuesta"
+        );
         
         setCards(data);
-        // Show only the first card of the first category
-        setVisibleCards([firstCategoryCards[0]]);
+        setVisibleCards(firstCategoryCards.length > 0 ? [firstCategoryCards[0]] : []);
         setCurrentCategoryIndex(0);
-        setCurrentCardIndex(1);
+        setCurrentTypeIndex(0);
       } catch (error) {
         toast({
           title: "Error",
@@ -46,21 +51,47 @@ const Index = () => {
   const loadMoreCards = useCallback(() => {
     const categories = Array.from(new Set(cards.map(card => card.Category)));
     const currentCategory = categories[currentCategoryIndex];
-    const categoryCards = cards.filter(card => card.Category === currentCategory);
+    const currentType = typeOrder[currentTypeIndex];
+    
+    // Get all cards of current category and type
+    const categoryTypeCards = cards.filter(card => 
+      card.Category === currentCategory && 
+      card.Type === currentType
+    );
 
-    if (currentCardIndex < categoryCards.length) {
-      // Add next card from current category
-      setVisibleCards(prev => [...prev, categoryCards[currentCardIndex]]);
-      setCurrentCardIndex(prev => prev + 1);
-    } else if (currentCategoryIndex < categories.length - 1) {
-      // Move to next category
-      const nextCategory = categories[currentCategoryIndex + 1];
-      const nextCategoryCards = cards.filter(card => card.Category === nextCategory);
-      setVisibleCards(prev => [...prev, nextCategoryCards[0]]);
-      setCurrentCategoryIndex(prev => prev + 1);
-      setCurrentCardIndex(1);
+    // If there are more cards of current type in current category
+    if (visibleCards.length < categoryTypeCards.length) {
+      const nextCard = categoryTypeCards[visibleCards.length];
+      setVisibleCards(prev => [...prev, nextCard]);
+    } 
+    // If we need to move to next type
+    else if (currentTypeIndex < typeOrder.length - 1) {
+      const nextType = typeOrder[currentTypeIndex + 1];
+      const nextTypeCards = cards.filter(card => 
+        card.Category === currentCategory && 
+        card.Type === nextType
+      );
+      
+      if (nextTypeCards.length > 0) {
+        setVisibleCards(prev => [...prev, nextTypeCards[0]]);
+        setCurrentTypeIndex(prev => prev + 1);
+      }
     }
-  }, [currentCategoryIndex, currentCardIndex, cards]);
+    // If we need to move to next category
+    else if (currentCategoryIndex < categories.length - 1) {
+      const nextCategory = categories[currentCategoryIndex + 1];
+      const nextCategoryCards = cards.filter(card => 
+        card.Category === nextCategory && 
+        card.Type === typeOrder[0]
+      );
+      
+      if (nextCategoryCards.length > 0) {
+        setVisibleCards(prev => [...prev, nextCategoryCards[0]]);
+        setCurrentCategoryIndex(prev => prev + 1);
+        setCurrentTypeIndex(0);
+      }
+    }
+  }, [currentCategoryIndex, currentTypeIndex, cards]);
 
   useEffect(() => {
     if (loading) return;
@@ -106,7 +137,7 @@ const Index = () => {
         </div>
         <div ref={loadingRef} className="mt-4">
           {(currentCategoryIndex < Array.from(new Set(cards.map(card => card.Category))).length - 1 || 
-           currentCardIndex < cards.filter(card => card.Category === Array.from(new Set(cards.map(card => card.Category)))[currentCategoryIndex]).length) && (
+           currentTypeIndex < typeOrder.length) && (
             <LoadingSpinner />
           )}
         </div>

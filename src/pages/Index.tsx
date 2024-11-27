@@ -19,7 +19,7 @@ const Index = () => {
       setTimeout(() => {
         setVisibleCards(prev => [...prev, cards[currentIndex]]);
         setCurrentIndex(prev => prev + 1);
-      }, 1500); // Keep 1.5 seconds delay
+      }, 1500);
     }
   }, [currentIndex, cards]);
 
@@ -29,7 +29,6 @@ const Index = () => {
         const response = await fetch("/bites_supa.json");
         const data = await response.json();
         
-        // Sort cards by Type while maintaining relative order within each type
         const sortedCards = [...data].sort((a, b) => {
           if (a.Type === b.Type) {
             return data.indexOf(a) - data.indexOf(b);
@@ -55,14 +54,18 @@ const Index = () => {
   useEffect(() => {
     if (loading) return;
 
-    observer.current = new IntersectionObserver(
-      entries => {
-        if (entries[0].isIntersecting && !loading) {
-          loadNextCard();
-        }
-      },
-      { threshold: 0.1 }
-    );
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    observer.current = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+      if (entry.isIntersecting && !loading) {
+        loadNextCard();
+      }
+    }, options);
 
     if (loadingRef.current) {
       observer.current.observe(loadingRef.current);

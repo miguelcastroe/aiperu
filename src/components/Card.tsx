@@ -46,7 +46,7 @@ const Card = ({ card, index }: CardProps) => {
       case "reflexión":
         return '#F1BD78'; // warm gold
       case "sugerencia":
-        return '#EFD9C7'; // soft peach
+        return '#F09235'; // new orange color for suggestions
       default:
         return '#44332D'; // warm brown
     }

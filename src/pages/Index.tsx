@@ -28,15 +28,7 @@ const Index = () => {
       try {
         const response = await fetch("/bites_supa.json");
         const data = await response.json();
-        
-        const sortedCards = [...data].sort((a, b) => {
-          if (a.Type === b.Type) {
-            return data.indexOf(a) - data.indexOf(b);
-          }
-          return a.Type.localeCompare(b.Type);
-        });
-        
-        setCards(sortedCards);
+        setCards(data);
       } catch (error) {
         toast({
           title: "Error",

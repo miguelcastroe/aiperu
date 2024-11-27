@@ -42,7 +42,7 @@ const Card = ({ card, index }: CardProps) => {
   const getTypeColor = (type: string): string => {
     switch (type.toLowerCase()) {
       case "propuesta":
-        return '#86373E'; // burgundy
+        return '#BB2233'; // new burgundy color for proposals
       case "reflexión":
         return '#F1BD78'; // warm gold
       case "sugerencia":

@@ -70,6 +70,32 @@ const Index = () => {
     };
   }, [loading, loadNextCard]);
 
+  const renderCards = () => {
+    let currentTitle = '';
+    return visibleCards.map((card, index) => (
+      <div key={index}>
+        {card.Title && card.Title !== currentTitle && (() => {
+          currentTitle = card.Title;
+          return (
+            <Typography
+              variant="h4"
+              sx={{
+                mt: 8,
+                mb: 4,
+                fontWeight: 500,
+                color: 'text.primary',
+                textAlign: 'left'
+              }}
+            >
+              {card.Title}
+            </Typography>
+          );
+        })()}
+        <Card card={card} index={index} />
+      </div>
+    ));
+  };
+
   if (loading) {
     return (
       <Box sx={{ 
@@ -98,9 +124,7 @@ const Index = () => {
         IA para el Gobierno Peruano
       </Typography>
       <Box>
-        {visibleCards.map((card, index) => (
-          <Card key={index} card={card} index={index} />
-        ))}
+        {renderCards()}
       </Box>
       <Box ref={loadingRef} sx={{ mt: 4 }}>
         {currentIndex < cards.length && (

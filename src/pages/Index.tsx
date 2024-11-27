@@ -214,10 +214,11 @@ const Index = () => {
               fontSize: '10px',
               fontFamily: '"Roboto Mono", monospace',
               letterSpacing: '0.05em',
-              lineHeight: 1.6
+              lineHeight: 1.6,
+              textTransform: 'uppercase'
             }}
           >
-            Creamos proyectos con propósito, guiados por empatía, análisis y colaboración. Directores creativos enfocados en el impacto social. | Contáctanos: +51 936646947
+            Creamos proyectos con propósito, guiados por empatía, análisis y colaboración. Directores creativos enfocados en el impacto social. | Escríbenos: +51 936646947
           </Typography>
         </Container>
       </Box>

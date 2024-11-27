@@ -38,11 +38,6 @@ const Index = () => {
         });
         
         setCards(sortedCards);
-        // Load the first card automatically after data is fetched
-        if (sortedCards.length > 0) {
-          setVisibleCards([sortedCards[0]]);
-          setCurrentIndex(1);
-        }
       } catch (error) {
         toast({
           title: "Error",

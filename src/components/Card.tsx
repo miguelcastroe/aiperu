@@ -73,47 +73,16 @@ const Card = ({ card, index }: CardProps) => {
         <CardContent sx={{ p: 3 }}>
           <Box sx={{ 
             display: 'flex', 
-            justifyContent: 'space-between', 
-            alignItems: 'flex-start',
+            justifyContent: 'flex-end', 
             mb: 2.5,
             pb: 2.5,
             borderBottom: '1px solid rgba(0, 0, 0, 0.08)'
           }}>
-            <Box>
-              {card.Title && (
-                <Typography 
-                  variant="h6" 
-                  sx={{ 
-                    mb: 1,
-                    opacity: isCategoryVisible ? 1 : 0,
-                    transition: 'opacity 0.5s ease-out',
-                    fontWeight: 500,
-                    color: 'text.primary'
-                  }}
-                >
-                  {card.Title}
-                </Typography>
-              )}
-              <Typography 
-                variant="subtitle1" 
-                sx={{ 
-                  m: 0,
-                  opacity: isCategoryVisible ? 1 : 0,
-                  transition: 'opacity 0.5s ease-out',
-                  fontWeight: 400,
-                  color: 'text.secondary'
-                }}
-              >
-                {card.Category}
-              </Typography>
-            </Box>
             <Chip
               label={card.Type}
               color={getTypeColor(card.Type)}
               size="small"
               sx={{ 
-                ml: 2,
-                px: 1,
                 fontWeight: 500,
                 letterSpacing: '0.02em'
               }}

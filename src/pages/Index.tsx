@@ -20,8 +20,10 @@ const Index = () => {
         const data = await response.json();
         setCards(data);
         // Show only the first card initially
-        setVisibleCards([data[0]]);
-        setCurrentIndex(1);
+        if (data.length > 0) {
+          setVisibleCards([data[0]]);
+          setCurrentIndex(1);
+        }
       } catch (error) {
         toast({
           title: "Error",
@@ -38,9 +40,11 @@ const Index = () => {
 
   const loadNextCard = useCallback(() => {
     if (currentIndex < cards.length) {
-      // Add exactly one card at a time
-      setVisibleCards(prev => [...prev, cards[currentIndex]]);
-      setCurrentIndex(prev => prev + 1);
+      // Add exactly one card at a time with a delay for better visualization
+      setTimeout(() => {
+        setVisibleCards(prev => [...prev, cards[currentIndex]]);
+        setCurrentIndex(prev => prev + 1);
+      }, 300); // Small delay for better visual transition
     }
   }, [currentIndex, cards]);
 
@@ -49,7 +53,7 @@ const Index = () => {
 
     observer.current = new IntersectionObserver(
       entries => {
-        if (entries[0].isIntersecting) {
+        if (entries[0].isIntersecting && !loading) {
           loadNextCard();
         }
       },

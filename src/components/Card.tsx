@@ -47,7 +47,7 @@ const Card = ({ card, index }: CardProps) => {
         return "error";
       case "reflexión":
         return "info";
-      case "nuestra sugerencia":
+      case "sugerencia":
         return "secondary";
       default:
         return "default";
@@ -83,7 +83,10 @@ const Card = ({ card, index }: CardProps) => {
               variant="subtitle2"
               sx={{
                 color: 'text.secondary',
-                fontWeight: 500
+                fontWeight: 500,
+                opacity: isCategoryVisible ? 1 : 0,
+                transition: 'opacity 0.3s ease-out',
+                display: 'block'
               }}
             >
               {card.Category}

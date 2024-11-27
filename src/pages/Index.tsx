@@ -91,7 +91,7 @@ const Index = () => {
             </Typography>
           );
         })()}
-        <Card card={card} index={index} />
+        <Card card={{...card, Title: ''}} index={index} />
       </div>
     ));
   };

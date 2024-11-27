@@ -19,7 +19,7 @@ const Index = () => {
       setTimeout(() => {
         setVisibleCards(prev => [...prev, cards[currentIndex]]);
         setCurrentIndex(prev => prev + 1);
-      }, 1500); // Set delay to 1.5 seconds
+      }, 1500); // Keep 1.5 seconds delay
     }
   }, [currentIndex, cards]);
 
@@ -28,10 +28,19 @@ const Index = () => {
       try {
         const response = await fetch("/bites_supa.json");
         const data = await response.json();
-        setCards(data);
+        
+        // Sort cards by Type while maintaining relative order within each type
+        const sortedCards = [...data].sort((a, b) => {
+          if (a.Type === b.Type) {
+            return data.indexOf(a) - data.indexOf(b);
+          }
+          return a.Type.localeCompare(b.Type);
+        });
+        
+        setCards(sortedCards);
         // Load the first card automatically after data is fetched
-        if (data.length > 0) {
-          setVisibleCards([data[0]]);
+        if (sortedCards.length > 0) {
+          setVisibleCards([sortedCards[0]]);
           setCurrentIndex(1);
         }
       } catch (error) {

@@ -117,21 +117,36 @@ const Index = () => {
   return (
     <Box sx={{ bgcolor: '#ececec', minHeight: '100vh' }}>
       <Container maxWidth="md" sx={{ py: 4 }}>
-        <Typography 
-          variant="h1" 
-          sx={{ 
-            textAlign: 'left', 
-            mb: 4,
-            fontWeight: 700,
-            color: '#1b1d1a',
-            fontSize: '12px',
-            fontFamily: '"Roboto Mono", monospace',
-            textTransform: 'uppercase',
-            letterSpacing: '0.05em'
-          }}
-        >
-          IA para el Gobierno Peruano
-        </Typography>
+        <Box sx={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'space-between',
+          mb: 4
+        }}>
+          <Typography 
+            variant="h1" 
+            sx={{ 
+              textAlign: 'left',
+              fontWeight: 700,
+              color: '#1b1d1a',
+              fontSize: '12px',
+              fontFamily: '"Roboto Mono", monospace',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em'
+            }}
+          >
+            IA para el Gobierno Peruano
+          </Typography>
+          <img 
+            src="/lovable-uploads/2eba5b3a-3cae-45eb-9c40-ef7fa9ce0ed1.png" 
+            alt="Logo" 
+            style={{ 
+              height: '20px',
+              width: 'auto',
+              marginLeft: '16px'
+            }}
+          />
+        </Box>
         <Typography
           variant="body1"
           sx={{

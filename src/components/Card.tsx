@@ -42,26 +42,25 @@ const Card = ({ card, index }: CardProps) => {
   const getTypeColor = (type: string): string => {
     switch (type.toLowerCase()) {
       case "propuesta":
-        return '#FF3B30'; // bright red for proposals
+        return '#ec5030'; // bright orange-red
       case "reflexión":
-        return '#5AC8FA'; // light blue for reflections
+        return '#a4d4dd'; // light blue
       case "sugerencia":
-        return '#4A8B75'; // teal for suggestions
+        return '#50787e'; // teal
       default:
-        return '#44332D';
+        return '#1b1d1a';
     }
   };
 
   const getCategoryStyle = (category: string) => {
     return {
-      backgroundColor: category.toLowerCase() === 'gobierno peruano' ? '#222222' : 
-                      category.toLowerCase() === 'ciudadanía' ? '#222222' : 
-                      '#222222',
-      color: '#FFFFFF',
+      backgroundColor: '#1b1d1a',
+      color: '#ececec',
       padding: '4px 12px',
       borderRadius: '4px',
-      fontSize: '0.75rem',
-      fontWeight: 500,
+      fontSize: '12px',
+      fontFamily: '"Roboto Mono", monospace',
+      fontWeight: 400,
       textTransform: 'uppercase' as const,
       letterSpacing: '0.05em'
     };
@@ -79,11 +78,11 @@ const Card = ({ card, index }: CardProps) => {
     >
       <MuiCard 
         sx={{ 
-          bgcolor: 'background.paper', 
-          color: '#17222B',
+          bgcolor: '#ececec',
+          color: '#1b1d1a',
           boxShadow: 'none',
           borderRadius: 0,
-          borderBottom: '1px solid rgba(0, 0, 0, 0.1)'
+          borderBottom: '1px solid rgba(27, 29, 26, 0.1)'
         }}
       >
         <CardContent sx={{ p: 3 }}>
@@ -104,12 +103,13 @@ const Card = ({ card, index }: CardProps) => {
               size="small"
               sx={{ 
                 bgcolor: getTypeColor(card.Type),
-                color: '#FFFFFF',
-                fontWeight: 500,
-                fontSize: '0.75rem',
+                color: '#ececec',
+                fontWeight: 400,
+                fontSize: '12px',
                 height: '24px',
                 borderRadius: '4px',
                 textTransform: 'uppercase',
+                fontFamily: '"Roboto Mono", monospace',
                 letterSpacing: '0.05em'
               }}
             />
@@ -118,11 +118,13 @@ const Card = ({ card, index }: CardProps) => {
             variant="body1" 
             sx={{ 
               m: 0,
-              color: '#000000',
+              color: '#1b1d1a',
               lineHeight: 1.7,
-              letterSpacing: '0.01em',
-              fontSize: '1rem',
-              fontWeight: 400
+              letterSpacing: '0.05em',
+              fontSize: '12px',
+              fontWeight: 400,
+              fontFamily: '"Roboto Mono", monospace',
+              textTransform: 'uppercase'
             }}
           >
             {card.Description}

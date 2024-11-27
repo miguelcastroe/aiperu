@@ -22,36 +22,39 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "#FBF8F0", // Soft cream background
-        foreground: "#17222B", // Dark navy text
+        background: "#ececec",
+        foreground: "#1b1d1a",
         primary: {
-          DEFAULT: "#86373E", // Rich burgundy
-          foreground: "#FBF8F0",
+          DEFAULT: "#ec5030",
+          foreground: "#ececec",
         },
         secondary: {
-          DEFAULT: "#44332D", // Warm brown
-          foreground: "#FBF8F0",
+          DEFAULT: "#50787e",
+          foreground: "#ececec",
         },
         accent: {
-          DEFAULT: "#F1BD78", // Warm gold
-          foreground: "#17222B",
+          DEFAULT: "#a4d4dd",
+          foreground: "#1b1d1a",
         },
         muted: {
-          DEFAULT: "#EFD9C7", // Soft peach
-          foreground: "#17222B",
+          DEFAULT: "#ececec",
+          foreground: "#1b1d1a",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
         popover: {
-          DEFAULT: "#FBF8F0",
-          foreground: "#17222B",
+          DEFAULT: "#ececec",
+          foreground: "#1b1d1a",
         },
         card: {
-          DEFAULT: "#FBF8F0",
-          foreground: "#17222B",
+          DEFAULT: "#ececec",
+          foreground: "#1b1d1a",
         },
+      },
+      fontFamily: {
+        mono: ['"Roboto Mono"', 'monospace'],
       },
       keyframes: {
         "fade-in-up": {

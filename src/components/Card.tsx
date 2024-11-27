@@ -73,11 +73,21 @@ const Card = ({ card, index }: CardProps) => {
         <CardContent sx={{ p: 3 }}>
           <Box sx={{ 
             display: 'flex', 
-            justifyContent: 'flex-end', 
+            justifyContent: 'space-between', 
+            alignItems: 'center',
             mb: 2.5,
             pb: 2.5,
             borderBottom: '1px solid rgba(0, 0, 0, 0.08)'
           }}>
+            <Typography
+              variant="subtitle2"
+              sx={{
+                color: 'text.secondary',
+                fontWeight: 500
+              }}
+            >
+              {card.Category}
+            </Typography>
             <Chip
               label={card.Type}
               color={getTypeColor(card.Type)}

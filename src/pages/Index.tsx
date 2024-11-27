@@ -127,9 +127,9 @@ const Index = () => {
             src="/lovable-uploads/2eba5b3a-3cae-45eb-9c40-ef7fa9ce0ed1.png" 
             alt="Logo" 
             style={{ 
-              height: '20px',
+              height: '24px',
               width: 'auto',
-              marginRight: '16px'
+              marginRight: '12px'
             }}
           />
           <Typography 

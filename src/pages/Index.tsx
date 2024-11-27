@@ -75,19 +75,21 @@ const Index = () => {
   }
 
   return (
-    <Page size="small">
-      <Text h1 style={{ textAlign: 'center', marginBottom: '2rem' }}>
-        IA para el Gobierno Peruano
-      </Text>
-      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-        {visibleCards.map((card, index) => (
-          <Card key={index} card={card} index={index} />
-        ))}
-      </div>
-      <div ref={loadingRef}>
-        {currentIndex < cards.length && (
-          <LoadingSpinner />
-        )}
+    <Page>
+      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 1rem' }}>
+        <Text h1 style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          IA para el Gobierno Peruano
+        </Text>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          {visibleCards.map((card, index) => (
+            <Card key={index} card={card} index={index} />
+          ))}
+        </div>
+        <div ref={loadingRef}>
+          {currentIndex < cards.length && (
+            <LoadingSpinner />
+          )}
+        </div>
       </div>
     </Page>
   );

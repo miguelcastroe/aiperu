@@ -1,0 +1,27 @@
+[
+  {
+    "Category": "IA en Gobierno",
+    "Type": "Propuesta",
+    "Description": "La inteligencia artificial en Perú busca revolucionar los servicios públicos, llevando salud, educación y empleo a los sectores más vulnerables."
+  },
+  {
+    "Category": "Inclusión Digital",
+    "Type": "Observación",
+    "Description": "Aunque la inclusión social es un objetivo, no se aborda el acceso digital de manera adecuada."
+  },
+  {
+    "Category": "Infraestructura",
+    "Type": "Propuesta",
+    "Description": "Implementación de centros de datos gubernamentales para procesar información con IA de manera segura y eficiente."
+  },
+  {
+    "Category": "Educación",
+    "Type": "Propuesta",
+    "Description": "Programas de capacitación en IA para funcionarios públicos y ciudadanos, fomentando la alfabetización digital."
+  },
+  {
+    "Category": "Regulación",
+    "Type": "Observación",
+    "Description": "Necesidad de establecer marcos regulatorios claros para el uso ético de la IA en el sector público."
+  }
+]

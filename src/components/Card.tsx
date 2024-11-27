@@ -1,6 +1,6 @@
 import { InsightCard } from "@/lib/types";
 import { useEffect, useState } from "react";
-import { Tag, Tile } from '@carbon/react';
+import { Card as MuiCard, CardContent, Typography, Chip, Box } from '@mui/material';
 
 interface CardProps {
   card: InsightCard;
@@ -39,66 +39,72 @@ const Card = ({ card, index }: CardProps) => {
     };
   }, [index]);
 
-  const getTypeColor = (type: string) => {
+  const getTypeColor = (type: string): "success" | "error" | "info" | "secondary" | "default" => {
     switch (type.toLowerCase()) {
       case "propuesta":
-        return "green";
+        return "success";
       case "observación":
-        return "magenta";
+        return "error";
       case "reflexión":
-        return "blue";
+        return "info";
       case "nuestra sugerencia":
-        return "purple";
+        return "secondary";
       default:
-        return "gray";
+        return "default";
     }
   };
 
   return (
-    <div
+    <Box
       id={`card-${index}`}
-      className="cds--tile-container"
-      style={{
+      sx={{
         opacity: isVisible ? 1 : 0,
         transform: `translateY(${isVisible ? 0 : '20px'})`,
         transition: 'opacity 0.5s ease-out, transform 0.5s ease-out',
-        marginBottom: '1rem'
+        mb: 2
       }}
     >
-      <Tile className="cds--tile">
-        <div style={{ 
-          display: 'flex', 
-          justifyContent: 'space-between', 
-          alignItems: 'flex-start', 
-          marginBottom: '1rem',
-          borderBottom: '1px solid var(--cds-border-subtle)',
-          paddingBottom: '1rem'
-        }}>
-          <h4 style={{ 
-            margin: 0,
-            opacity: isCategoryVisible ? 1 : 0,
-            transition: 'opacity 0.5s ease-out',
-            fontSize: 'var(--cds-heading-03)',
-            color: 'var(--cds-text-primary)',
-            fontWeight: 400
+      <MuiCard elevation={2}>
+        <CardContent>
+          <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            alignItems: 'flex-start',
+            mb: 2,
+            pb: 2,
+            borderBottom: '1px solid rgba(0, 0, 0, 0.12)'
           }}>
-            {card.Category}
-          </h4>
-          <Tag type={getTypeColor(card.Type)} size="sm">
-            {card.Type}
-          </Tag>
-        </div>
-        <p style={{ 
-          margin: 0, 
-          fontSize: 'var(--cds-body-long-01)',
-          color: 'var(--cds-text-secondary)',
-          lineHeight: 'var(--cds-body-long-01-line-height)',
-          fontWeight: 300
-        }}>
-          {card.Description}
-        </p>
-      </Tile>
-    </div>
+            <Typography 
+              variant="h6" 
+              sx={{ 
+                m: 0,
+                opacity: isCategoryVisible ? 1 : 0,
+                transition: 'opacity 0.5s ease-out',
+                fontWeight: 400
+              }}
+            >
+              {card.Category}
+            </Typography>
+            <Chip
+              label={card.Type}
+              color={getTypeColor(card.Type)}
+              size="small"
+              sx={{ ml: 2 }}
+            />
+          </Box>
+          <Typography 
+            variant="body1" 
+            sx={{ 
+              m: 0,
+              color: 'text.secondary',
+              lineHeight: 1.6
+            }}
+          >
+            {card.Description}
+          </Typography>
+        </CardContent>
+      </MuiCard>
+    </Box>
   );
 };
 

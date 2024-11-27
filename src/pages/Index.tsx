@@ -3,7 +3,7 @@ import { InsightCard } from "@/lib/types";
 import Card from "@/components/Card";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { useToast } from "@/components/ui/use-toast";
-import { Content } from '@carbon/react';
+import { Container, Typography, Box } from '@mui/material';
 
 const Index = () => {
   const [cards, setCards] = useState<InsightCard[]>([]);
@@ -68,47 +68,42 @@ const Index = () => {
 
   if (loading) {
     return (
-      <div style={{ 
+      <Box sx={{ 
         minHeight: '100vh', 
         display: 'flex', 
         alignItems: 'center', 
         justifyContent: 'center',
-        background: 'var(--cds-background)'
+        bgcolor: 'background.default'
       }}>
         <LoadingSpinner />
-      </div>
+      </Box>
     );
   }
 
   return (
-    <Content>
-      <div style={{ 
-        maxWidth: '800px', 
-        margin: '0 auto', 
-        padding: '2rem 1rem',
-        background: 'var(--cds-background)'
-      }}>
-        <h1 style={{ 
+    <Container maxWidth="md" sx={{ py: 4 }}>
+      <Typography 
+        variant="h1" 
+        sx={{ 
           textAlign: 'center', 
-          marginBottom: '3rem',
-          fontSize: 'var(--cds-heading-05)',
-          color: 'var(--cds-text-primary)',
-          fontWeight: 300
-        }}>
-          IA para el Gobierno Peruano
-        </h1>
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          {visibleCards.map((card, index) => (
-            <Card key={index} card={card} index={index} />
-          ))}
-        </div>
-        <div ref={loadingRef} style={{ marginTop: '2rem' }}>
-          {currentIndex < cards.length && (
-            <LoadingSpinner />
-          )}
-        </div>
-      </div>
-    </Content>
+          mb: 6,
+          fontWeight: 300,
+          color: 'text.primary'
+        }}
+      >
+        IA para el Gobierno Peruano
+      </Typography>
+      <Box>
+        {visibleCards.map((card, index) => (
+          <Card key={index} card={card} index={index} />
+        ))}
+      </Box>
+      <Box ref={loadingRef} sx={{ mt: 4 }}>
+        {currentIndex < cards.length && (
+          <LoadingSpinner />
+        )}
+      </Box>
+    </Container>
   );
 };
 

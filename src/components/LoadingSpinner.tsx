@@ -1,10 +1,10 @@
-import { Loading } from '@carbon/react';
+import { CircularProgress, Box } from '@mui/material';
 
 const LoadingSpinner = () => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '1rem' }}>
-      <Loading withOverlay={false} />
-    </div>
+    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', p: 2 }}>
+      <CircularProgress />
+    </Box>
   );
 };
 

@@ -115,7 +115,7 @@ const Index = () => {
   }
 
   return (
-    <Box sx={{ bgcolor: '#ececec', minHeight: '100vh' }}>
+    <Box sx={{ bgcolor: '#ececec', minHeight: '100vh', pt: 4 }}>
       <Container maxWidth="md" sx={{ py: 4 }}>
         <Box sx={{ 
           display: 'flex', 

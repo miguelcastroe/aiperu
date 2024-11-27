@@ -1,6 +1,8 @@
 import { InsightCard } from "@/lib/types";
 import { useEffect, useState } from "react";
-import { Card as MuiCard, CardContent, Typography, Chip, Box } from '@mui/material';
+import { Card as MuiCard, CardContent, Typography, Chip, Box, IconButton } from '@mui/material';
+import { toast } from "@/components/ui/use-toast";
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 interface CardProps {
   card: InsightCard;
@@ -42,11 +44,11 @@ const Card = ({ card, index }: CardProps) => {
   const getTypeColor = (type: string): string => {
     switch (type.toLowerCase()) {
       case "propuesta":
-        return '#ec5030'; // bright orange-red
+        return '#ec5030';
       case "reflexión":
-        return '#a4d4dd'; // light blue
+        return '#a4d4dd';
       case "sugerencia":
-        return '#50787e'; // teal
+        return '#50787e';
       default:
         return '#1b1d1a';
     }
@@ -64,6 +66,20 @@ const Card = ({ card, index }: CardProps) => {
       textTransform: 'uppercase' as const,
       letterSpacing: '0.05em'
     };
+  };
+
+  const handleCopy = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      toast({
+        description: "Texto copiado al portapapeles",
+      });
+    } catch (err) {
+      toast({
+        variant: "destructive",
+        description: "Error al copiar el texto",
+      });
+    }
   };
 
   return (
@@ -98,21 +114,33 @@ const Card = ({ card, index }: CardProps) => {
             >
               {card.Category}
             </Box>
-            <Chip
-              label={card.Type}
-              size="small"
-              sx={{ 
-                bgcolor: getTypeColor(card.Type),
-                color: '#ececec',
-                fontWeight: 400,
-                fontSize: '12px',
-                height: '24px',
-                borderRadius: '4px',
-                textTransform: 'uppercase',
-                fontFamily: '"Roboto Mono", monospace',
-                letterSpacing: '0.05em'
-              }}
-            />
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Chip
+                label={card.Type}
+                size="small"
+                sx={{ 
+                  bgcolor: getTypeColor(card.Type),
+                  color: '#ececec',
+                  fontWeight: 400,
+                  fontSize: '12px',
+                  height: '24px',
+                  borderRadius: '4px',
+                  textTransform: 'uppercase',
+                  fontFamily: '"Roboto Mono", monospace',
+                  letterSpacing: '0.05em'
+                }}
+              />
+              <IconButton 
+                onClick={() => handleCopy(card.Description)}
+                size="small"
+                sx={{ 
+                  color: '#1b1d1a',
+                  '&:hover': { backgroundColor: 'rgba(27, 29, 26, 0.1)' }
+                }}
+              >
+                <ContentCopyIcon sx={{ fontSize: 16 }} />
+              </IconButton>
+            </Box>
           </Box>
           <Typography 
             variant="body1" 

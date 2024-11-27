@@ -78,13 +78,14 @@ const Index = () => {
           currentTitle = card.Title;
           return (
             <Typography
-              variant="h4"
+              variant="h5"
               sx={{
                 mt: 8,
                 mb: 4,
                 fontWeight: 500,
                 color: 'text.primary',
-                textAlign: 'left'
+                textAlign: 'left',
+                fontSize: '1.25rem'
               }}
             >
               {card.Title}

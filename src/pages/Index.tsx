@@ -68,7 +68,13 @@ const Index = () => {
 
   if (loading) {
     return (
-      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ 
+        minHeight: '100vh', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center',
+        background: 'var(--cds-background)'
+      }}>
         <LoadingSpinner />
       </div>
     );
@@ -76,8 +82,19 @@ const Index = () => {
 
   return (
     <Content>
-      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 1rem' }}>
-        <h1 style={{ textAlign: 'center', marginBottom: '2rem', fontWeight: 300 }}>
+      <div style={{ 
+        maxWidth: '800px', 
+        margin: '0 auto', 
+        padding: '2rem 1rem',
+        background: 'var(--cds-background)'
+      }}>
+        <h1 style={{ 
+          textAlign: 'center', 
+          marginBottom: '3rem',
+          fontSize: 'var(--cds-heading-05)',
+          color: 'var(--cds-text-primary)',
+          fontWeight: 300
+        }}>
           IA para el Gobierno Peruano
         </h1>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
@@ -85,7 +102,7 @@ const Index = () => {
             <Card key={index} card={card} index={index} />
           ))}
         </div>
-        <div ref={loadingRef}>
+        <div ref={loadingRef} style={{ marginTop: '2rem' }}>
           {currentIndex < cards.length && (
             <LoadingSpinner />
           )}

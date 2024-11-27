@@ -44,11 +44,11 @@ const Card = ({ card, index }: CardProps) => {
       case "propuesta":
         return "green";
       case "observación":
-        return "yellow";
+        return "magenta";
       case "reflexión":
         return "blue";
       case "nuestra sugerencia":
-        return "gray";
+        return "purple";
       default:
         return "gray";
     }
@@ -57,28 +57,44 @@ const Card = ({ card, index }: CardProps) => {
   return (
     <div
       id={`card-${index}`}
+      className="cds--tile-container"
       style={{
         opacity: isVisible ? 1 : 0,
         transform: `translateY(${isVisible ? 0 : '20px'})`,
-        transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out',
+        transition: 'opacity 0.5s ease-out, transform 0.5s ease-out',
         marginBottom: '1rem'
       }}
     >
-      <Tile>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
+      <Tile className="cds--tile">
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'space-between', 
+          alignItems: 'flex-start', 
+          marginBottom: '1rem',
+          borderBottom: '1px solid var(--cds-border-subtle)',
+          paddingBottom: '1rem'
+        }}>
           <h4 style={{ 
             margin: 0,
             opacity: isCategoryVisible ? 1 : 0,
-            transition: 'opacity 0.5s ease-in-out',
-            fontWeight: 300
+            transition: 'opacity 0.5s ease-out',
+            fontSize: 'var(--cds-heading-03)',
+            color: 'var(--cds-text-primary)',
+            fontWeight: 400
           }}>
             {card.Category}
           </h4>
-          <Tag type={getTypeColor(card.Type)}>
+          <Tag type={getTypeColor(card.Type)} size="sm">
             {card.Type}
           </Tag>
         </div>
-        <p style={{ margin: 0, fontWeight: 300 }}>
+        <p style={{ 
+          margin: 0, 
+          fontSize: 'var(--cds-body-long-01)',
+          color: 'var(--cds-text-secondary)',
+          lineHeight: 'var(--cds-body-long-01-line-height)',
+          fontWeight: 300
+        }}>
           {card.Description}
         </p>
       </Tile>

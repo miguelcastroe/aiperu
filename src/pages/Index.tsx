@@ -8,8 +8,7 @@ const Index = () => {
   const [cards, setCards] = useState<InsightCard[]>([]);
   const [visibleCards, setVisibleCards] = useState<InsightCard[]>([]);
   const [loading, setLoading] = useState(true);
-  const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
-  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const observer = useRef<IntersectionObserver | null>(null);
   const loadingRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
@@ -19,16 +18,10 @@ const Index = () => {
       try {
         const response = await fetch("/bites_supa.json");
         const data = await response.json();
-        
-        // Group cards by category
-        const categories = Array.from(new Set(data.map((card: InsightCard) => card.Category)));
-        const firstCategoryCards = data.filter((card: InsightCard) => card.Category === categories[0]);
-        
         setCards(data);
-        // Show only the first card of the first category
-        setVisibleCards([firstCategoryCards[0]]);
-        setCurrentCategoryIndex(0);
-        setCurrentCardIndex(1);
+        // Show only the first card initially
+        setVisibleCards([data[0]]);
+        setCurrentIndex(1);
       } catch (error) {
         toast({
           title: "Error",
@@ -43,24 +36,13 @@ const Index = () => {
     fetchCards();
   }, [toast]);
 
-  const loadMoreCards = useCallback(() => {
-    const categories = Array.from(new Set(cards.map(card => card.Category)));
-    const currentCategory = categories[currentCategoryIndex];
-    const categoryCards = cards.filter(card => card.Category === currentCategory);
-
-    if (currentCardIndex < categoryCards.length) {
-      // Add only one card at a time
-      setVisibleCards(prev => [...prev, categoryCards[currentCardIndex]]);
-      setCurrentCardIndex(prev => prev + 1);
-    } else if (currentCategoryIndex < categories.length - 1) {
-      // Move to next category
-      const nextCategory = categories[currentCategoryIndex + 1];
-      const nextCategoryCards = cards.filter(card => card.Category === nextCategory);
-      setVisibleCards(prev => [...prev, nextCategoryCards[0]]);
-      setCurrentCategoryIndex(prev => prev + 1);
-      setCurrentCardIndex(1);
+  const loadNextCard = useCallback(() => {
+    if (currentIndex < cards.length) {
+      // Add exactly one card at a time
+      setVisibleCards(prev => [...prev, cards[currentIndex]]);
+      setCurrentIndex(prev => prev + 1);
     }
-  }, [currentCategoryIndex, currentCardIndex, cards]);
+  }, [currentIndex, cards]);
 
   useEffect(() => {
     if (loading) return;
@@ -68,7 +50,7 @@ const Index = () => {
     observer.current = new IntersectionObserver(
       entries => {
         if (entries[0].isIntersecting) {
-          loadMoreCards();
+          loadNextCard();
         }
       },
       { threshold: 0.1 }
@@ -83,7 +65,7 @@ const Index = () => {
         observer.current.disconnect();
       }
     };
-  }, [loading, loadMoreCards]);
+  }, [loading, loadNextCard]);
 
   if (loading) {
     return (
@@ -105,8 +87,7 @@ const Index = () => {
           ))}
         </div>
         <div ref={loadingRef} className="mt-4">
-          {(currentCategoryIndex < Array.from(new Set(cards.map(card => card.Category))).length - 1 || 
-           currentCardIndex < cards.filter(card => card.Category === Array.from(new Set(cards.map(card => card.Category)))[currentCategoryIndex]).length) && (
+          {currentIndex < cards.length && (
             <LoadingSpinner />
           )}
         </div>

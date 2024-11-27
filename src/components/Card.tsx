@@ -79,18 +79,34 @@ const Card = ({ card, index }: CardProps) => {
             pb: 2.5,
             borderBottom: '1px solid rgba(0, 0, 0, 0.08)'
           }}>
-            <Typography 
-              variant="h6" 
-              sx={{ 
-                m: 0,
-                opacity: isCategoryVisible ? 1 : 0,
-                transition: 'opacity 0.5s ease-out',
-                fontWeight: 400,
-                color: 'text.primary'
-              }}
-            >
-              {card.Category}
-            </Typography>
+            <Box>
+              {card.Title && (
+                <Typography 
+                  variant="h6" 
+                  sx={{ 
+                    mb: 1,
+                    opacity: isCategoryVisible ? 1 : 0,
+                    transition: 'opacity 0.5s ease-out',
+                    fontWeight: 500,
+                    color: 'text.primary'
+                  }}
+                >
+                  {card.Title}
+                </Typography>
+              )}
+              <Typography 
+                variant="subtitle1" 
+                sx={{ 
+                  m: 0,
+                  opacity: isCategoryVisible ? 1 : 0,
+                  transition: 'opacity 0.5s ease-out',
+                  fontWeight: 400,
+                  color: 'text.secondary'
+                }}
+              >
+                {card.Category}
+              </Typography>
+            </Box>
             <Chip
               label={card.Type}
               color={getTypeColor(card.Type)}

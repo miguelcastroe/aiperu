@@ -1,162 +1,194 @@
 [
-    {
-        "Category": "IA",
-        "Type": "Propuesta",
-        "Description": "La inteligencia artificial en Perú busca revolucionar los servicios públicos, llevando salud, educación y empleo a los sectores más vulnerables."
-    },
-    {
-        "Category": "IA",
-        "Type": "Observación",
-        "Description": "Aunque la inclusión social es un objetivo, no se detalla cómo la IA llegará efectivamente a las comunidades rurales más alejadas."
-    },
-    {
-        "Category": "IA",
-        "Type": "Reflexión",
-        "Description": "La falta de referencias a modelos de lenguaje como LLM o algoritmos de machine learning evidencia una brecha en el conocimiento del Estado."
-    },
-    {
-        "Category": "IA",
-        "Type": "Nuestra Sugerencia",
-        "Description": "Integrar tecnologías de IA multimodal y LLM para ampliar el alcance de servicios en comunidades vulnerables, como traducción en lenguas indígenas."
-    },
-    {
-        "Category": "IA",
-        "Type": "Propuesta",
-        "Description": "El Comité Nacional de IA garantizará que el desarrollo de inteligencia artificial sea ético, inclusivo y enfocado en el bienestar ciudadano."
-    },
-    {
-        "Category": "IA",
-        "Type": "Observación",
-        "Description": "Sin presupuestos claros ni fuentes de financiamiento identificadas, la implementación de estrategias de IA enfrenta riesgos significativos."
-    },
-    {
-        "Category": "IA",
-        "Type": "Reflexión",
-        "Description": "El plan no menciona IA generativa, una herramienta clave para automatizar procesos creativos y administrativos."
-    },
-    {
-        "Category": "IA",
-        "Type": "Nuestra Sugerencia",
-        "Description": "Definir un plan financiero detallado y considerar la implementación de IA generativa para optimizar procesos públicos."
-    },
-    {
-        "Category": "IA",
-        "Type": "Propuesta",
-        "Description": "Las plataformas de big data e interoperabilidad están diseñadas para soportar servicios avanzados de inteligencia artificial en todo el país."
-    },
-    {
-        "Category": "IA",
-        "Type": "Observación",
-        "Description": "No se aborda cómo garantizar que la infraestructura esté actualizada y sea sostenible a largo plazo."
-    },
-    {
-        "Category": "IA",
-        "Type": "Reflexión",
-        "Description": "Falta una estrategia para utilizar machine learning y NLP en el análisis y predicción de datos públicos."
-    },
-    {
-        "Category": "IA",
-        "Type": "Nuestra Sugerencia",
-        "Description": "Establecer un comité técnico para supervisar actualizaciones de infraestructura e integrar herramientas de NLP y ML para maximizar su uso."
-    },
-    {
-        "Category": "Datos Abiertos",
-        "Type": "Propuesta",
-        "Description": "El portal nacional PNDA busca democratizar el acceso a la información pública, fomentando la confianza ciudadana."
-    },
-    {
-        "Category": "Datos Abiertos",
-        "Type": "Observación",
-        "Description": "El documento carece de estrategias para actualizar y mantener el portal PNDA de manera continua."
-    },
-    {
-        "Category": "Datos Abiertos",
-        "Type": "Reflexión",
-        "Description": "No se explora cómo APIs avanzadas como GraphQL podrían mejorar la interoperabilidad del PNDA."
-    },
-    {
-        "Category": "Datos Abiertos",
-        "Type": "Nuestra Sugerencia",
-        "Description": "Adoptar estándares API modernos como GraphQL para hacer el PNDA más flexible e interoperable."
-    },
-    {
-        "Category": "Datos Abiertos",
-        "Type": "Propuesta",
-        "Description": "Con estándares globales como ISO 27001 y DCAT, Perú asegura que sus datos sean útiles y reutilizables en el escenario global."
-    },
-    {
-        "Category": "Datos Abiertos",
-        "Type": "Observación",
-        "Description": "No se detalla cómo garantizar datos suficientemente limpios y estructurados para alimentar modelos avanzados de IA."
-    },
-    {
-        "Category": "Datos Abiertos",
-        "Type": "Reflexión",
-        "Description": "La calidad de los datos abiertos no está alineada con los requisitos de IA avanzada."
-    },
-    {
-        "Category": "Datos Abiertos",
-        "Type": "Nuestra Sugerencia",
-        "Description": "Implementar un programa de limpieza y estructuración de datos abierto para asegurar su compatibilidad con modelos de IA."
-    },
-    {
-        "Category": "Datos Abiertos",
-        "Type": "Propuesta",
-        "Description": "Los datos abiertos podrían aportar S/ 1,713 millones al PIB y ahorrar S/ 3,076 millones en costos administrativos para 2030."
-    },
-    {
-        "Category": "Datos Abiertos",
-        "Type": "Observación",
-        "Description": "El impacto económico está proyectado, pero no hay métricas específicas para medir su contribución año tras año."
-    },
-    {
-        "Category": "Datos Abiertos",
-        "Type": "Reflexión",
-        "Description": "La ausencia de indicadores clave dificulta evaluar el éxito del programa de datos abiertos."
-    },
-    {
-        "Category": "Datos Abiertos",
-        "Type": "Nuestra Sugerencia",
-        "Description": "Definir KPIs anuales, como porcentaje de datos reutilizados o nivel de ahorro administrativo acumulado."
-    },
-    {
-        "Category": "Datos Abiertos",
-        "Type": "Propuesta",
-        "Description": "Proyectos como alertas de salud y predicción de precios agrícolas están diseñados para transformar sectores clave."
-    },
-    {
-        "Category": "Datos Abiertos",
-        "Type": "Observación",
-        "Description": "No se menciona cómo se involucrará al sector privado para desarrollar y operar estos servicios basados en datos abiertos."
-    },
-    {
-        "Category": "Datos Abiertos",
-        "Type": "Reflexión",
-        "Description": "El plan no detalla incentivos para la colaboración público-privada en datos abiertos."
-    },
-    {
-        "Category": "Datos Abiertos",
-        "Type": "Nuestra Sugerencia",
-        "Description": "Crear un sistema de incentivos fiscales para empresas que desarrollen soluciones basadas en datos abiertos."
-    },
-    {
-        "Category": "IA y Datos Abiertos",
-        "Type": "Propuesta",
-        "Description": "Perú apuesta por la inteligencia artificial y los datos abiertos como pilares de la modernización del Estado y el bienestar social."
-    },
-    {
-        "Category": "IA y Datos Abiertos",
-        "Type": "Observación",
-        "Description": "Sin un plan financiero claro ni métricas específicas, las estrategias podrían quedar en el papel."
-    },
-    {
-        "Category": "IA y Datos Abiertos",
-        "Type": "Reflexión",
-        "Description": "No se detalla cómo los datos abiertos alimentarán algoritmos de IA, desaprovechando una sinergia clave."
-    },
-    {
-        "Category": "IA y Datos Abiertos",
-        "Type": "Nuestra Sugerencia",
-        "Description": "Diseñar una estrategia integrada donde los datos abiertos sirvan como insumo principal para algoritmos de IA en salud, educación y transporte."
-    }
+  {
+    "Title": "Inclusión y desafíos rurales",
+    "Category": "IA",
+    "Type": "Propuesta",
+    "Description": "La inteligencia artificial en Perú busca revolucionar los servicios públicos, llevando salud, educación y empleo a los sectores más vulnerables."
+  },
+  {
+    "Title": "",
+    "Category": "IA",
+    "Type": "Observación",
+    "Description": "Aunque la inclusión social es un objetivo, no se detalla cómo la IA llegará efectivamente a las comunidades rurales más alejadas."
+  },
+  {
+    "Title": "",
+    "Category": "IA",
+    "Type": "Reflexión",
+    "Description": "La falta de referencias a modelos de lenguaje como LLM o algoritmos de machine learning evidencia una brecha en el conocimiento del Estado."
+  },
+  {
+    "Title": "",
+    "Category": "IA",
+    "Type": "Nuestra Sugerencia",
+    "Description": "Integrar tecnologías de IA multimodal y LLM para ampliar el alcance de servicios en comunidades vulnerables, como traducción en lenguas indígenas."
+  },
+  {
+    "Title": "Ética y financiamiento pendiente",
+    "Category": "IA",
+    "Type": "Propuesta",
+    "Description": "El Comité Nacional de IA garantizará que el desarrollo de inteligencia artificial sea ético, inclusivo y enfocado en el bienestar ciudadano."
+  },
+  {
+    "Title": "",
+    "Category": "IA",
+    "Type": "Observación",
+    "Description": "Sin presupuestos claros ni fuentes de financiamiento identificadas, la implementación de estrategias de IA enfrenta riesgos significativos."
+  },
+  {
+    "Title": "",
+    "Category": "IA",
+    "Type": "Reflexión",
+    "Description": "El plan no menciona IA generativa, una herramienta clave para automatizar procesos creativos y administrativos."
+  },
+  {
+    "Title": "",
+    "Category": "IA",
+    "Type": "Nuestra Sugerencia",
+    "Description": "Definir un plan financiero detallado y considerar la implementación de IA generativa para optimizar procesos públicos."
+  },
+  {
+    "Title": "Infraestructura y optimización",
+    "Category": "IA",
+    "Type": "Propuesta",
+    "Description": "Las plataformas de big data e interoperabilidad están diseñadas para soportar servicios avanzados de inteligencia artificial en todo el país."
+  },
+  {
+    "Title": "",
+    "Category": "IA",
+    "Type": "Observación",
+    "Description": "No se aborda cómo garantizar que la infraestructura esté actualizada y sea sostenible a largo plazo."
+  },
+  {
+    "Title": "",
+    "Category": "IA",
+    "Type": "Reflexión",
+    "Description": "Falta una estrategia para utilizar machine learning y NLP en el análisis y predicción de datos públicos."
+  },
+  {
+    "Title": "",
+    "Category": "IA",
+    "Type": "Nuestra Sugerencia",
+    "Description": "Establecer un comité técnico para supervisar actualizaciones de infraestructura e integrar herramientas de NLP y ML para maximizar su uso."
+  },
+  {
+    "Title": "Modernización del PNDA",
+    "Category": "Datos Abiertos",
+    "Type": "Propuesta",
+    "Description": "El portal nacional PNDA busca democratizar el acceso a la información pública, fomentando la confianza ciudadana."
+  },
+  {
+    "Title": "",
+    "Category": "Datos Abiertos",
+    "Type": "Observación",
+    "Description": "El documento carece de estrategias para actualizar y mantener el portal PNDA de manera continua."
+  },
+  {
+    "Title": "",
+    "Category": "Datos Abiertos",
+    "Type": "Reflexión",
+    "Description": "No se explora cómo APIs avanzadas como GraphQL podrían mejorar la interoperabilidad del PNDA."
+  },
+  {
+    "Title": "",
+    "Category": "Datos Abiertos",
+    "Type": "Nuestra Sugerencia",
+    "Description": "Adoptar estándares API modernos como GraphQL para hacer el PNDA más flexible e interoperable."
+  },
+  {
+    "Title": "Calidad de los datos abiertos",
+    "Category": "Datos Abiertos",
+    "Type": "Propuesta",
+    "Description": "Con estándares globales como ISO 27001 y DCAT, Perú asegura que sus datos sean útiles y reutilizables en el escenario global."
+  },
+  {
+    "Title": "",
+    "Category": "Datos Abiertos",
+    "Type": "Observación",
+    "Description": "No se detalla cómo garantizar datos suficientemente limpios y estructurados para alimentar modelos avanzados de IA."
+  },
+  {
+    "Title": "",
+    "Category": "Datos Abiertos",
+    "Type": "Reflexión",
+    "Description": "La calidad de los datos abiertos no está alineada con los requisitos de IA avanzada."
+  },
+  {
+    "Title": "",
+    "Category": "Datos Abiertos",
+    "Type": "Nuestra Sugerencia",
+    "Description": "Implementar un programa de limpieza y estructuración de datos abierto para asegurar su compatibilidad con modelos de IA."
+  },
+  {
+    "Title": "Impacto y métricas clave",
+    "Category": "Datos Abiertos",
+    "Type": "Propuesta",
+    "Description": "Los datos abiertos podrían aportar S/ 1,713 millones al PIB y ahorrar S/ 3,076 millones en costos administrativos para 2030."
+  },
+  {
+    "Title": "",
+    "Category": "Datos Abiertos",
+    "Type": "Observación",
+    "Description": "El impacto económico está proyectado, pero no hay métricas específicas para medir su contribución año tras año."
+  },
+  {
+    "Title": "",
+    "Category": "Datos Abiertos",
+    "Type": "Reflexión",
+    "Description": "La ausencia de indicadores clave dificulta evaluar el éxito del programa de datos abiertos."
+  },
+  {
+    "Title": "",
+    "Category": "Datos Abiertos",
+    "Type": "Nuestra Sugerencia",
+    "Description": "Definir KPIs anuales, como porcentaje de datos reutilizados o nivel de ahorro administrativo acumulado."
+  },
+  {
+    "Title": "Colaboración público-privada",
+    "Category": "Datos Abiertos",
+    "Type": "Propuesta",
+    "Description": "Proyectos como alertas de salud y predicción de precios agrícolas están diseñados para transformar sectores clave."
+  },
+  {
+    "Title": "",
+    "Category": "Datos Abiertos",
+    "Type": "Observación",
+    "Description": "No se menciona cómo se involucrará al sector privado para desarrollar y operar estos servicios basados en datos abiertos."
+  },
+  {
+    "Title": "",
+    "Category": "Datos Abiertos",
+    "Type": "Reflexión",
+    "Description": "El plan no detalla incentivos para la colaboración público-privada en datos abiertos."
+  },
+  {
+    "Title": "",
+    "Category": "Datos Abiertos",
+    "Type": "Nuestra Sugerencia",
+    "Description": "Crear un sistema de incentivos fiscales para empresas que desarrollen soluciones basadas en datos abiertos."
+  },
+  {
+    "Title": "Sinergia entre datos y algoritmos",
+    "Category": "IA y Datos Abiertos",
+    "Type": "Propuesta",
+    "Description": "Perú apuesta por la inteligencia artificial y los datos abiertos como pilares de la modernización del Estado y el bienestar social."
+  },
+  {
+    "Title": "",
+    "Category": "IA y Datos Abiertos",
+    "Type": "Observación",
+    "Description": "Sin un plan financiero claro ni métricas específicas, las estrategias podrían quedar en el papel."
+  },
+  {
+    "Title": "",
+    "Category": "IA y Datos Abiertos",
+    "Type": "Reflexión",
+    "Description": "No se detalla cómo los datos abiertos alimentarán algoritmos de IA, desaprovechando una sinergia clave."
+  },
+  {
+    "Title": "",
+    "Category": "IA y Datos Abiertos",
+    "Type": "Nuestra Sugerencia",
+    "Description": "Diseñar una estrategia integrada donde los datos abiertos sirvan como insumo principal para algoritmos de IA en salud, educación y transporte."
+  }
 ]

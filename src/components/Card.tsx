@@ -39,18 +39,16 @@ const Card = ({ card, index }: CardProps) => {
     };
   }, [index]);
 
-  const getTypeColor = (type: string): "success" | "error" | "info" | "secondary" | "default" => {
+  const getTypeColor = (type: string): string => {
     switch (type.toLowerCase()) {
       case "propuesta":
-        return "success";
-      case "observación":
-        return "error";
+        return '#86373E'; // burgundy
       case "reflexión":
-        return "info";
+        return '#F1BD78'; // warm gold
       case "sugerencia":
-        return "secondary";
+        return '#EFD9C7'; // soft peach
       default:
-        return "default";
+        return '#44332D'; // warm brown
     }
   };
 
@@ -93,12 +91,11 @@ const Card = ({ card, index }: CardProps) => {
             </Typography>
             <Chip
               label={card.Type}
-              color={getTypeColor(card.Type)}
               size="small"
               sx={{ 
                 fontWeight: 500,
                 letterSpacing: '0.02em',
-                bgcolor: '#F1BD78',
+                bgcolor: getTypeColor(card.Type),
                 color: '#17222B'
               }}
             />
@@ -107,7 +104,7 @@ const Card = ({ card, index }: CardProps) => {
             variant="body1" 
             sx={{ 
               m: 0,
-              color: '#44332D',
+              color: '#17222B',
               lineHeight: 1.7,
               letterSpacing: '0.01em'
             }}

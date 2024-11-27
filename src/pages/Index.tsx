@@ -77,7 +77,7 @@ const Index = () => {
   return (
     <Page>
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 1rem' }}>
-        <Text h1 style={{ textAlign: 'center', marginBottom: '2rem', fontWeight: 200 }}>
+        <Text h1 style={{ textAlign: 'center', marginBottom: '2rem', fontWeight: 100 }}>
           IA para el Gobierno Peruano
         </Text>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>

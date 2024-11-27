@@ -70,15 +70,15 @@ const Card = ({ card, index }: CardProps) => {
             margin: 0,
             opacity: isCategoryVisible ? 1 : 0,
             transition: 'opacity 0.5s ease-in-out',
-            fontWeight: 300
+            fontWeight: 100
           }}>
             {card.Category}
           </Text>
-          <Tag type={getTypeColor(card.Type)} style={{ fontWeight: 200 }}>
+          <Tag type={getTypeColor(card.Type)} style={{ fontWeight: 100 }}>
             {card.Type}
           </Tag>
         </div>
-        <Text p style={{ margin: 0, fontWeight: 200 }}>
+        <Text p style={{ margin: 0, fontWeight: 100 }}>
           {card.Description}
         </Text>
       </GeistCard>

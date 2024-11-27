@@ -8,12 +8,17 @@ interface CardProps {
 
 const Card = ({ card, index }: CardProps) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isCategoryVisible, setIsCategoryVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          // Delay the category animation slightly after the card appears
+          setTimeout(() => {
+            setIsCategoryVisible(true);
+          }, 200);
           observer.unobserve(entry.target);
         }
       },
@@ -59,7 +64,13 @@ const Card = ({ card, index }: CardProps) => {
       }`}
     >
       <div className="flex justify-between items-start mb-3">
-        <h2 className="text-xl font-bold text-primary">{card.Category}</h2>
+        <h2 
+          className={`text-xl font-bold text-primary transition-opacity duration-500 ease-in-out ${
+            isCategoryVisible ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          {card.Category}
+        </h2>
         <span
           className={`px-3 py-1 rounded-full text-sm font-medium ${getTypeColor(
             card.Type

@@ -120,7 +120,7 @@ const Index = () => {
             textAlign: 'left', 
             mb: 4,
             fontWeight: 400,
-            color: '#86373E',
+            color: '#BB2233',
             fontSize: '2.5rem'
           }}
         >

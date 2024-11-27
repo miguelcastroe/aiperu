@@ -120,9 +120,18 @@ const Index = () => {
         <Box sx={{ 
           display: 'flex', 
           alignItems: 'center', 
-          justifyContent: 'space-between',
+          justifyContent: 'flex-start',
           mb: 4
         }}>
+          <img 
+            src="/lovable-uploads/2eba5b3a-3cae-45eb-9c40-ef7fa9ce0ed1.png" 
+            alt="Logo" 
+            style={{ 
+              height: '20px',
+              width: 'auto',
+              marginRight: '16px'
+            }}
+          />
           <Typography 
             variant="h1" 
             sx={{ 
@@ -137,15 +146,6 @@ const Index = () => {
           >
             IA para el Gobierno Peruano
           </Typography>
-          <img 
-            src="/lovable-uploads/2eba5b3a-3cae-45eb-9c40-ef7fa9ce0ed1.png" 
-            alt="Logo" 
-            style={{ 
-              height: '20px',
-              width: 'auto',
-              marginLeft: '16px'
-            }}
-          />
         </Box>
         <Typography
           variant="body1"

@@ -8,7 +8,7 @@ const Index = () => {
   const [cards, setCards] = useState<InsightCard[]>([]);
   const [visibleCards, setVisibleCards] = useState<InsightCard[]>([]);
   const [loading, setLoading] = useState(true);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
   const observer = useRef<IntersectionObserver | null>(null);
   const loadingRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
@@ -18,9 +18,14 @@ const Index = () => {
       try {
         const response = await fetch("/bites_supa.json");
         const data = await response.json();
+        
+        // Group cards by category
+        const categories = Array.from(new Set(data.map((card: InsightCard) => card.Category)));
+        const firstCategoryCards = data.filter((card: InsightCard) => card.Category === categories[0]);
+        
         setCards(data);
-        setVisibleCards(data.slice(0, 5));
-        setCurrentIndex(5);
+        setVisibleCards(firstCategoryCards);
+        setCurrentCategoryIndex(1);
       } catch (error) {
         toast({
           title: "Error",
@@ -36,12 +41,17 @@ const Index = () => {
   }, [toast]);
 
   const loadMoreCards = useCallback(() => {
-    if (currentIndex >= cards.length) return;
+    const categories = Array.from(new Set(cards.map(card => card.Category)));
+    
+    if (currentCategoryIndex >= categories.length) return;
 
-    const nextCards = cards.slice(currentIndex, currentIndex + 3);
-    setVisibleCards(prev => [...prev, ...nextCards]);
-    setCurrentIndex(prev => prev + 3);
-  }, [currentIndex, cards]);
+    const nextCategoryCards = cards.filter(
+      card => card.Category === categories[currentCategoryIndex]
+    );
+
+    setVisibleCards(prev => [...prev, ...nextCategoryCards]);
+    setCurrentCategoryIndex(prev => prev + 1);
+  }, [currentCategoryIndex, cards]);
 
   useEffect(() => {
     if (loading) return;
@@ -86,7 +96,9 @@ const Index = () => {
           ))}
         </div>
         <div ref={loadingRef} className="mt-4">
-          {currentIndex < cards.length && <LoadingSpinner />}
+          {currentCategoryIndex < Array.from(new Set(cards.map(card => card.Category))).length && (
+            <LoadingSpinner />
+          )}
         </div>
       </div>
     </div>

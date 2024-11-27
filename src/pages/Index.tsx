@@ -14,12 +14,26 @@ const Index = () => {
   const loadingRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
+  const loadNextCard = useCallback(() => {
+    if (currentIndex < cards.length) {
+      setTimeout(() => {
+        setVisibleCards(prev => [...prev, cards[currentIndex]]);
+        setCurrentIndex(prev => prev + 1);
+      }, 1500); // Set delay to 1.5 seconds
+    }
+  }, [currentIndex, cards]);
+
   useEffect(() => {
     const fetchCards = async () => {
       try {
         const response = await fetch("/bites_supa.json");
         const data = await response.json();
         setCards(data);
+        // Load the first card automatically after data is fetched
+        if (data.length > 0) {
+          setVisibleCards([data[0]]);
+          setCurrentIndex(1);
+        }
       } catch (error) {
         toast({
           title: "Error",
@@ -33,15 +47,6 @@ const Index = () => {
 
     fetchCards();
   }, [toast]);
-
-  const loadNextCard = useCallback(() => {
-    if (currentIndex < cards.length) {
-      setTimeout(() => {
-        setVisibleCards(prev => [...prev, cards[currentIndex]]);
-        setCurrentIndex(prev => prev + 1);
-      }, 300);
-    }
-  }, [currentIndex, cards]);
 
   useEffect(() => {
     if (loading) return;

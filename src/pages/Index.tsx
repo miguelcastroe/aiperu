@@ -19,7 +19,7 @@ const Index = () => {
       setTimeout(() => {
         setVisibleCards(prev => [...prev, cards[currentIndex]]);
         setCurrentIndex(prev => prev + 1);
-      }, 1500);
+      }, 1200); // Changed from 1500 to 1200 milliseconds
     }
   }, [currentIndex, cards]);
 

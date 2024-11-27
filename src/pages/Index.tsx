@@ -122,7 +122,7 @@ const Index = () => {
           sx={{ 
             textAlign: 'left', 
             mb: 4,
-            fontWeight: 400,
+            fontWeight: 700,
             color: '#1b1d1a',
             fontSize: '12px',
             fontFamily: '"Roboto Mono", monospace',
@@ -155,7 +155,7 @@ const Index = () => {
             display: 'block',
             textAlign: 'left',
             mb: 6,
-            color: '#ec5030',
+            color: '#1b1d1a',
             textDecoration: 'underline',
             fontFamily: '"Roboto Mono", monospace',
             fontSize: '12px',
@@ -166,7 +166,7 @@ const Index = () => {
             }
           }}
         >
-          Enlace al reporte de Presidencia de Consejo de Ministros
+          Enlace al reporte de PCM
         </Link>
         <Box sx={{ bgcolor: '#ececec', p: 0 }}>
           {renderCards()}

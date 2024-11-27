@@ -83,7 +83,7 @@ const Index = () => {
                 mt: 8,
                 mb: 4,
                 fontWeight: 500,
-                color: '#86373E',
+                color: '#BB2233',
                 textAlign: 'left',
                 fontSize: '1.25rem'
               }}

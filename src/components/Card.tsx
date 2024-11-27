@@ -69,7 +69,7 @@ const Card = ({ card, index }: CardProps) => {
         }
       }}
     >
-      <MuiCard>
+      <MuiCard sx={{ bgcolor: 'background.paper', color: '#17222B' }}>
         <CardContent sx={{ p: 3 }}>
           <Box sx={{ 
             display: 'flex', 
@@ -77,12 +77,12 @@ const Card = ({ card, index }: CardProps) => {
             alignItems: 'center',
             mb: 2.5,
             pb: 2.5,
-            borderBottom: '1px solid rgba(0, 0, 0, 0.08)'
+            borderBottom: '1px solid rgba(23, 34, 43, 0.08)'
           }}>
             <Typography
               variant="subtitle2"
               sx={{
-                color: 'text.secondary',
+                color: '#86373E',
                 fontWeight: 500,
                 opacity: isCategoryVisible ? 1 : 0,
                 transition: 'opacity 0.3s ease-out',
@@ -97,7 +97,9 @@ const Card = ({ card, index }: CardProps) => {
               size="small"
               sx={{ 
                 fontWeight: 500,
-                letterSpacing: '0.02em'
+                letterSpacing: '0.02em',
+                bgcolor: '#F1BD78',
+                color: '#17222B'
               }}
             />
           </Box>
@@ -105,7 +107,7 @@ const Card = ({ card, index }: CardProps) => {
             variant="body1" 
             sx={{ 
               m: 0,
-              color: 'text.secondary',
+              color: '#44332D',
               lineHeight: 1.7,
               letterSpacing: '0.01em'
             }}

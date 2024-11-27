@@ -19,7 +19,7 @@ const Index = () => {
       setTimeout(() => {
         setVisibleCards(prev => [...prev, cards[currentIndex]]);
         setCurrentIndex(prev => prev + 1);
-      }, 1200); // Changed from 1500 to 1200 milliseconds
+      }, 1200);
     }
   }, [currentIndex, cards]);
 
@@ -83,7 +83,7 @@ const Index = () => {
                 mt: 8,
                 mb: 4,
                 fontWeight: 500,
-                color: 'text.primary',
+                color: '#86373E',
                 textAlign: 'left',
                 fontSize: '1.25rem'
               }}
@@ -104,7 +104,7 @@ const Index = () => {
         display: 'flex', 
         alignItems: 'center', 
         justifyContent: 'center',
-        bgcolor: 'background.default'
+        bgcolor: '#FBF8F0'
       }}>
         <LoadingSpinner />
       </Box>
@@ -112,14 +112,15 @@ const Index = () => {
   }
 
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
+    <Container maxWidth="md" sx={{ py: 4, bgcolor: '#FBF8F0' }}>
       <Typography 
         variant="h1" 
         sx={{ 
           textAlign: 'center', 
           mb: 6,
           fontWeight: 300,
-          color: 'text.primary'
+          color: '#86373E',
+          fontSize: '2.5rem'
         }}
       >
         IA para el Gobierno Peruano

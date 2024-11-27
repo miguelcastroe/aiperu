@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @use '@carbon/styles';
 @import '@carbon/styles/css/styles.css';
 

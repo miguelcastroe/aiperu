@@ -116,84 +116,14 @@ const Index = () => {
 
   return (
     <Box sx={{ bgcolor: '#ececec', minHeight: '100vh', pt: 4, position: 'relative', pb: 20 }}>
-      <Container maxWidth="md" sx={{ py: 4 }}>
-        <Box sx={{ 
-          display: 'flex', 
-          alignItems: 'center', 
-          justifyContent: 'flex-start',
-          mb: 4
-        }}>
-          <img 
-            src="/lovable-uploads/2eba5b3a-3cae-45eb-9c40-ef7fa9ce0ed1.png" 
-            alt="Logo" 
-            style={{ 
-              height: '24px',
-              width: 'auto',
-              marginRight: '12px'
-            }}
-          />
-          <Typography 
-            variant="h1" 
-            sx={{ 
-              textAlign: 'left',
-              fontWeight: 700,
-              color: '#1b1d1a',
-              fontSize: '12px',
-              fontFamily: '"Roboto Mono", monospace',
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em'
-            }}
-          >
-            IA para el Gobierno Peruano
-          </Typography>
-        </Box>
-        
-        <Typography
-          variant="body1"
-          sx={{
-            textAlign: 'left',
-            mb: 2,
-            color: '#1b1d1a',
-            lineHeight: 1.7,
-            letterSpacing: '0.05em',
-            fontSize: '12px',
-            fontFamily: '"Roboto Mono", monospace',
-            textTransform: 'uppercase'
-          }}
-        >
-          Este sitio analiza reflexivamente el reporte de la Presidencia del Consejo de Ministros (PCM) sobre IA en Perú (21/11/2024), integrando observaciones ciudadanas y posibles soluciones, dentro de las limitaciones de las fuentes originales.
-        </Typography>
-        <Link
-          href="https://www.gob.pe/iaperu"
-          target="_blank"
-          rel="noopener noreferrer"
-          sx={{
-            display: 'block',
-            textAlign: 'left',
-            mb: 6,
-            color: '#1b1d1a',
-            textDecoration: 'underline',
-            fontFamily: '"Roboto Mono", monospace',
-            fontSize: '12px',
-            textTransform: 'uppercase',
-            letterSpacing: '0.05em',
-            '&:hover': {
-              color: '#44332D'
-            }
-          }}
-        >
-          Enlace al reporte de PCM
-        </Link>
-        <Box sx={{ bgcolor: '#ececec', p: 0 }}>
-          {renderCards()}
-        </Box>
-        <Box ref={loadingRef} sx={{ mt: 4 }}>
-          {currentIndex < cards.length && (
-            <LoadingSpinner />
-          )}
-        </Box>
-      </Container>
-
+      <Box sx={{ bgcolor: '#ececec', p: 0 }}>
+        {renderCards()}
+      </Box>
+      <Box ref={loadingRef} sx={{ mt: 4 }}>
+        {currentIndex < cards.length && (
+          <LoadingSpinner />
+        )}
+      </Box>
       <Box
         component="footer"
         sx={{
@@ -205,7 +135,7 @@ const Index = () => {
           borderTop: '1px solid #1b1d1a20',
         }}
       >
-        <Container maxWidth="md">
+        <Container maxWidth="sm">
           <Typography
             variant="body2"
             sx={{

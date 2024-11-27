@@ -42,11 +42,11 @@ const Card = ({ card, index }: CardProps) => {
   const getTypeColor = (type: string): string => {
     switch (type.toLowerCase()) {
       case "propuesta":
-        return '#BB2233'; // new burgundy color for proposals
+        return '#BB2233'; // burgundy color for proposals
       case "reflexión":
         return '#F1BD78'; // warm gold
       case "sugerencia":
-        return '#F09235'; // new orange color for suggestions
+        return '#F09235'; // orange
       default:
         return '#44332D'; // warm brown
     }
@@ -84,7 +84,8 @@ const Card = ({ card, index }: CardProps) => {
                 fontWeight: 500,
                 opacity: isCategoryVisible ? 1 : 0,
                 transition: 'opacity 0.3s ease-out',
-                display: 'block'
+                display: 'block',
+                fontSize: '1.1rem'  // Increased from default
               }}
             >
               {card.Category}
@@ -96,7 +97,8 @@ const Card = ({ card, index }: CardProps) => {
                 fontWeight: 500,
                 letterSpacing: '0.02em',
                 bgcolor: getTypeColor(card.Type),
-                color: '#FBF8F0'
+                color: '#FBF8F0',
+                fontSize: '0.9rem'  // Increased from default
               }}
             />
           </Box>
@@ -106,7 +108,8 @@ const Card = ({ card, index }: CardProps) => {
               m: 0,
               color: '#17222B',
               lineHeight: 1.7,
-              letterSpacing: '0.01em'
+              letterSpacing: '0.01em',
+              fontSize: '1.05rem'  // Increased from default
             }}
           >
             {card.Description}

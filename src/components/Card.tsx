@@ -80,7 +80,7 @@ const Card = ({ card, index }: CardProps) => {
             <Typography
               variant="subtitle2"
               sx={{
-                color: '#86373E',
+                color: '#17222B',
                 fontWeight: 500,
                 opacity: isCategoryVisible ? 1 : 0,
                 transition: 'opacity 0.3s ease-out',

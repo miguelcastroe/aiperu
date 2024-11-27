@@ -98,7 +98,8 @@ const Card = ({ card, index }: CardProps) => {
           color: '#1b1d1a',
           boxShadow: 'none',
           borderRadius: 0,
-          borderBottom: '1px solid rgba(27, 29, 26, 0.1)'
+          borderBottom: '1px solid rgba(27, 29, 26, 0.1)',
+          position: 'relative'
         }}
       >
         <CardContent sx={{ p: 3 }}>
@@ -114,33 +115,21 @@ const Card = ({ card, index }: CardProps) => {
             >
               {card.Category}
             </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <Chip
-                label={card.Type}
-                size="small"
-                sx={{ 
-                  bgcolor: getTypeColor(card.Type),
-                  color: '#ececec',
-                  fontWeight: 400,
-                  fontSize: '12px',
-                  height: '24px',
-                  borderRadius: '4px',
-                  textTransform: 'uppercase',
-                  fontFamily: '"Roboto Mono", monospace',
-                  letterSpacing: '0.05em'
-                }}
-              />
-              <IconButton 
-                onClick={() => handleCopy(card.Description)}
-                size="small"
-                sx={{ 
-                  color: '#1b1d1a',
-                  '&:hover': { backgroundColor: 'rgba(27, 29, 26, 0.1)' }
-                }}
-              >
-                <ContentCopyIcon sx={{ fontSize: 16 }} />
-              </IconButton>
-            </Box>
+            <Chip
+              label={card.Type}
+              size="small"
+              sx={{ 
+                bgcolor: getTypeColor(card.Type),
+                color: '#ececec',
+                fontWeight: 400,
+                fontSize: '12px',
+                height: '24px',
+                borderRadius: '4px',
+                textTransform: 'uppercase',
+                fontFamily: '"Roboto Mono", monospace',
+                letterSpacing: '0.05em'
+              }}
+            />
           </Box>
           <Typography 
             variant="body1" 
@@ -152,11 +141,25 @@ const Card = ({ card, index }: CardProps) => {
               fontSize: '12px',
               fontWeight: 400,
               fontFamily: '"Roboto Mono", monospace',
-              textTransform: 'uppercase'
+              textTransform: 'uppercase',
+              pr: 4
             }}
           >
             {card.Description}
           </Typography>
+          <IconButton 
+            onClick={() => handleCopy(card.Description)}
+            size="small"
+            sx={{ 
+              color: '#1b1d1a',
+              '&:hover': { backgroundColor: 'rgba(27, 29, 26, 0.1)' },
+              position: 'absolute',
+              bottom: '16px',
+              right: '16px'
+            }}
+          >
+            <ContentCopyIcon sx={{ fontSize: 14 }} />
+          </IconButton>
         </CardContent>
       </MuiCard>
     </Box>

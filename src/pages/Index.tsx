@@ -118,13 +118,37 @@ const Index = () => {
           variant="h1" 
           sx={{ 
             textAlign: 'center', 
-            mb: 6,
+            mb: 4,
             fontWeight: 300,
             color: '#86373E',
             fontSize: '2.5rem'
           }}
         >
           IA para el Gobierno Peruano
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            textAlign: 'left',
+            mb: 2,
+            color: '#17222B',
+            lineHeight: 1.7,
+            letterSpacing: '0.01em'
+          }}
+        >
+          Este website se basa en el reporte de la Presidencia del Consejo de Ministros sobre la Inteligencia Artificial en Perú, publicado el 21 de noviembre de 2024. A partir de esta base, lo analizamos de manera reflexiva y objetiva, integrando observaciones ciudadanas y esbozos de soluciones innovadoras.
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            textAlign: 'left',
+            mb: 6,
+            color: '#17222B',
+            lineHeight: 1.7,
+            letterSpacing: '0.01em'
+          }}
+        >
+          Buscamos inspirar un futuro donde la IA promueva el bienestar social y económico de forma ética, inclusiva y sostenible, invitando a todos a asumir responsabilidades para lograrlo.
         </Typography>
         <Box>
           {renderCards()}

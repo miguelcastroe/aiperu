@@ -167,7 +167,7 @@ const Index = () => {
         >
           Enlace al reporte de Presidencia de Consejo de Ministros
         </Link>
-        <Box>
+        <Box sx={{ bgcolor: '#FFFFFF', p: 0 }}>
           {renderCards()}
         </Box>
         <Box ref={loadingRef} sx={{ mt: 4 }}>

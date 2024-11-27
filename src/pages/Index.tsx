@@ -19,8 +19,8 @@ const Index = () => {
         const response = await fetch("/bites_supa.json");
         const data = await response.json();
         setCards(data);
-        setVisibleCards(data.slice(0, 2));
-        setCurrentIndex(2);
+        setVisibleCards(data.slice(0, 5));
+        setCurrentIndex(5);
       } catch (error) {
         toast({
           title: "Error",
@@ -38,9 +38,9 @@ const Index = () => {
   const loadMoreCards = useCallback(() => {
     if (currentIndex >= cards.length) return;
 
-    const nextCard = cards[currentIndex];
-    setVisibleCards(prev => [...prev, nextCard]);
-    setCurrentIndex(prev => prev + 1);
+    const nextCards = cards.slice(currentIndex, currentIndex + 3);
+    setVisibleCards(prev => [...prev, ...nextCards]);
+    setCurrentIndex(prev => prev + 3);
   }, [currentIndex, cards]);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ const Index = () => {
           loadMoreCards();
         }
       },
-      { threshold: 1.0 }
+      { threshold: 0.1 }
     );
 
     if (loadingRef.current) {

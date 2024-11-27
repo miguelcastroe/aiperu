@@ -1,4 +1,5 @@
 import { InsightCard } from "@/lib/types";
+import { useEffect, useState } from "react";
 
 interface CardProps {
   card: InsightCard;
@@ -6,12 +7,45 @@ interface CardProps {
 }
 
 const Card = ({ card, index }: CardProps) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    const currentElement = document.getElementById(`card-${index}`);
+    if (currentElement) {
+      observer.observe(currentElement);
+    }
+
+    return () => {
+      if (currentElement) {
+        observer.unobserve(currentElement);
+      }
+    };
+  }, [index]);
+
   const getTypeColor = (type: string) => {
     switch (type.toLowerCase()) {
       case "propuesta":
         return "bg-green-100 text-green-800";
       case "observación":
         return "bg-yellow-100 text-yellow-800";
+      case "crítica":
+        return "bg-red-100 text-red-800";
+      case "crítica técnica":
+        return "bg-orange-100 text-orange-800";
+      case "nuestra sugerencia":
+        return "bg-blue-100 text-blue-800";
       default:
         return "bg-blue-100 text-blue-800";
     }
@@ -19,8 +53,10 @@ const Card = ({ card, index }: CardProps) => {
 
   return (
     <div
-      className="bg-white rounded-lg shadow-md p-6 mb-4 animate-fade-in-up opacity-0"
-      style={{ animationDelay: `${index * 0.1}s` }}
+      id={`card-${index}`}
+      className={`bg-white rounded-lg shadow-md p-6 mb-4 transition-opacity duration-500 ease-in-out ${
+        isVisible ? "opacity-100" : "opacity-0"
+      }`}
     >
       <div className="flex justify-between items-start mb-3">
         <h2 className="text-xl font-bold text-primary">{card.Category}</h2>

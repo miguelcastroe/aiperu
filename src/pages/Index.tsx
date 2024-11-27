@@ -19,11 +19,6 @@ const Index = () => {
         const response = await fetch("/bites_supa.json");
         const data = await response.json();
         setCards(data);
-        // Show only the first card initially
-        if (data.length > 0) {
-          setVisibleCards([data[0]]);
-          setCurrentIndex(1);
-        }
       } catch (error) {
         toast({
           title: "Error",
@@ -40,11 +35,10 @@ const Index = () => {
 
   const loadNextCard = useCallback(() => {
     if (currentIndex < cards.length) {
-      // Add exactly one card at a time with a delay for better visualization
       setTimeout(() => {
         setVisibleCards(prev => [...prev, cards[currentIndex]]);
         setCurrentIndex(prev => prev + 1);
-      }, 300); // Small delay for better visual transition
+      }, 300);
     }
   }, [currentIndex, cards]);
 

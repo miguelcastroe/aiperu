@@ -104,7 +104,7 @@ const Index = () => {
         display: 'flex', 
         alignItems: 'center', 
         justifyContent: 'center',
-        bgcolor: '#FBF8F0'
+        bgcolor: '#ececec'
       }}>
         <LoadingSpinner />
       </Box>
@@ -112,7 +112,7 @@ const Index = () => {
   }
 
   return (
-    <Box sx={{ bgcolor: '#FBF8F0', minHeight: '100vh' }}>
+    <Box sx={{ bgcolor: '#ececec', minHeight: '100vh' }}>
       <Container maxWidth="md" sx={{ py: 4 }}>
         <Typography 
           variant="h1" 
@@ -121,7 +121,10 @@ const Index = () => {
             mb: 4,
             fontWeight: 400,
             color: '#BB2233',
-            fontSize: '2.5rem'
+            fontSize: '12px',
+            fontFamily: '"Roboto Mono", monospace',
+            textTransform: 'uppercase',
+            letterSpacing: '0.05em'
           }}
         >
           IA para el Gobierno Peruano
@@ -131,9 +134,12 @@ const Index = () => {
           sx={{
             textAlign: 'left',
             mb: 2,
-            color: '#17222B',
+            color: '#1b1d1a',
             lineHeight: 1.7,
-            letterSpacing: '0.01em'
+            letterSpacing: '0.05em',
+            fontSize: '12px',
+            fontFamily: '"Roboto Mono", monospace',
+            textTransform: 'uppercase'
           }}
         >
           Este website se basa en el reporte de la Presidencia del Consejo de Ministros sobre la Inteligencia Artificial en Perú, publicado el 21 de noviembre de 2024. A partir de esta base, lo analizamos de manera reflexiva y objetiva, integrando observaciones ciudadanas y esbozos de soluciones innovadoras.
@@ -143,9 +149,12 @@ const Index = () => {
           sx={{
             textAlign: 'left',
             mb: 2,
-            color: '#17222B',
+            color: '#1b1d1a',
             lineHeight: 1.7,
-            letterSpacing: '0.01em'
+            letterSpacing: '0.05em',
+            fontSize: '12px',
+            fontFamily: '"Roboto Mono", monospace',
+            textTransform: 'uppercase'
           }}
         >
           Buscamos inspirar un futuro donde la IA promueva el bienestar social y económico de forma ética, inclusiva y sostenible, invitando a todos a asumir responsabilidades para lograrlo.
@@ -160,6 +169,10 @@ const Index = () => {
             mb: 6,
             color: '#86373E',
             textDecoration: 'underline',
+            fontFamily: '"Roboto Mono", monospace',
+            fontSize: '12px',
+            textTransform: 'uppercase',
+            letterSpacing: '0.05em',
             '&:hover': {
               color: '#44332D'
             }
@@ -167,7 +180,7 @@ const Index = () => {
         >
           Enlace al reporte de Presidencia de Consejo de Ministros
         </Link>
-        <Box sx={{ bgcolor: '#FFFFFF', p: 0 }}>
+        <Box sx={{ bgcolor: '#ececec', p: 0 }}>
           {renderCards()}
         </Box>
         <Box ref={loadingRef} sx={{ mt: 4 }}>
